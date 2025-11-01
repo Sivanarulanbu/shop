@@ -1,0 +1,290 @@
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
+from django.db.models import Q
+from django.views.decorators.http import require_POST
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
+from .models import Product, Category, Brand, Order, OrderItem, OrderStatus
+from .forms import ProductFilterForm, CartAddProductForm
+from .cart import Cart
+from django.db import transaction
+from decimal import Decimal
+from django.utils.crypto import get_random_string
+
+def validate_order_status(status):
+    valid_statuses = ['pending', 'processing', 'confirmed', 'cancelled', 'shipped', 'delivered', 'refunded']
+    if status not in valid_statuses:
+        raise ValidationError(f"Invalid status: {status}")
+    return status
+
+# [Previous functions remain unchanged...]
+# Add all the previous functions here exactly as they are up until the checkout function
+
+@login_required
+def checkout(request):
+    cart = Cart(request)
+    
+    # Check if cart is empty
+    if len(cart) == 0:
+        messages.error(request, "Your cart is empty!")
+        return redirect('shop:product_list')
+        
+    if request.method == 'POST':
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            try:
+                with transaction.atomic():
+                    # Validate cart is not empty
+                    if len(cart) == 0:
+                        messages.error(request, "Your cart is empty!")
+                        return redirect('shop:cart_detail')
+
+                    # Check product availability and stock
+                    unavailable_products = []
+                    for item in cart:
+                        product = item['product']
+                        if not product.available:
+                            unavailable_products.append(f"{product.name} is no longer available")
+                        elif product.stock < item['quantity']:
+                            unavailable_products.append(
+                                f"{product.name} has insufficient stock (requested: {item['quantity']}, available: {product.stock})"
+                            )
+                    
+                    if unavailable_products:
+                        messages.error(request, "Order cannot be completed:")
+                        for msg in unavailable_products:
+                            messages.error(request, msg)
+                        return redirect('shop:cart_detail')
+
+                    # Create order
+                    order = form.save(commit=False)
+                    order.user = request.user
+                    order.status = 'pending'
+                    order.payment_status = 'pending'
+                    
+                    # Set estimated delivery
+                    from datetime import date, timedelta
+                    today = date.today()
+                    if order.shipping_method == 'express':
+                        order.estimated_delivery = today + timedelta(days=3)
+                    elif order.shipping_method == 'standard':
+                        order.estimated_delivery = today + timedelta(days=7)
+                    elif order.shipping_method == 'pickup':
+                        order.estimated_delivery = today + timedelta(days=1)
+
+                    # Calculate totals
+                    subtotal = Decimal(str(cart.get_total_price()))
+                    shipping_cost = Decimal('0.00')
+                    
+                    if order.shipping_method == 'standard':
+                        shipping_cost = Decimal('5.00')
+                    elif order.shipping_method == 'express':
+                        shipping_cost = Decimal('15.00')
+                    
+                    tax = (subtotal + shipping_cost) * Decimal('0.10')
+                    
+                    order.subtotal = subtotal
+                    order.shipping_cost = shipping_cost
+                    order.tax = tax
+                    order.total_amount = subtotal + shipping_cost + tax
+
+                    # Generate tracking number
+                    max_attempts = 10
+                    attempt = 0
+                    while attempt < max_attempts:
+                        try:
+                            tracking_number = get_random_string(10).upper()
+                            order.tracking_number = tracking_number
+                            order.save()
+                            break
+                        except ValidationError:
+                            attempt += 1
+                    
+                    if attempt >= max_attempts:
+                        raise ValidationError("Could not generate unique tracking number")
+
+                    # Create order items and update stock
+                    for item in cart:
+                        OrderItem.objects.create(
+                            order=order,
+                            product=item['product'],
+                            price=item['price'],
+                            quantity=item['quantity']
+                        )
+                        # Update stock
+                        product = item['product']
+                        product.stock -= item['quantity']
+                        product.save()
+
+                    # Create initial order status
+                    OrderStatus.objects.create(
+                        order=order,
+                        status='pending',
+                        note='Order placed successfully',
+                        created_by=request.user
+                    )
+
+                    # Process payment
+                    if order.payment_method == 'cash_on_delivery':
+                        new_status = 'confirmed'
+                        payment_status = 'pending'
+                        status_note = 'Order confirmed - Cash on Delivery'
+                    else:
+                        # Here we would integrate with payment gateway
+                        new_status = 'processing'
+                        payment_status = 'completed'
+                        status_note = 'Payment processed successfully'
+
+                    # Update order status
+                    validate_order_status(new_status)
+                    order.status = new_status
+                    order.payment_status = payment_status
+                    order.save()
+
+                    # Create status update
+                    OrderStatus.objects.create(
+                        order=order,
+                        status=new_status,
+                        note=status_note,
+                        created_by=request.user
+                    )
+
+                    # Send confirmation email
+                    try:
+                        from .utils import send_order_confirmation_email
+                        email_sent = send_order_confirmation_email(request, order)
+                        if email_sent:
+                            messages.success(
+                                request,
+                                f"Order #{order.id} placed successfully! "
+                                f"Current Status: {order.get_status_display()}. "
+                                f"A confirmation email has been sent to {order.email}"
+                            )
+                        else:
+                            messages.warning(
+                                request,
+                                f"Order #{order.id} placed successfully. "
+                                f"Please save your tracking number: {order.tracking_number}. "
+                                "The confirmation email could not be sent."
+                            )
+                    except Exception as e:
+                        messages.warning(
+                            request,
+                            f"Order #{order.id} placed successfully. "
+                            f"Please save your tracking number: {order.tracking_number}. "
+                            "The confirmation email could not be sent."
+                        )
+
+                    # Store order details in session
+                    request.session['recent_order_id'] = order.id
+                    request.session['order_tracking_number'] = order.tracking_number
+                    
+                    # Clear cart and redirect
+                    cart.clear()
+                    return redirect('shop:order_confirmation', order_id=order.id)
+
+            except ValidationError as e:
+                messages.error(request, str(e))
+                return redirect('shop:checkout')
+            except Exception as e:
+                messages.error(request, "An error occurred while processing your order. Please try again.")
+                return redirect('shop:checkout')
+    else:
+        # Pre-fill form with user data if available
+        initial_data = {}
+        if request.user.first_name:
+            initial_data['first_name'] = request.user.first_name
+        if request.user.last_name:
+            initial_data['last_name'] = request.user.last_name
+        if request.user.email:
+            initial_data['email'] = request.user.email
+        form = CheckoutForm(initial=initial_data)
+    
+    return render(request, 'shop/checkout.html', {
+        'cart': cart,
+        'form': form
+    })
+
+@login_required
+def order_confirmation(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    
+    # Validate order has items
+    if not order.items.exists():
+        messages.warning(request, "This order has no items.")
+    
+    # Validate order status
+    try:
+        validate_order_status(order.status)
+    except ValidationError as e:
+        messages.error(request, str(e))
+        order.status = 'pending'  # Set to default status
+        order.save()
+    
+    return render(request, 'shop/order_confirmation.html', {'order': order})
+
+@login_required
+def order_list(request):
+    orders = Order.objects.filter(user=request.user).order_by('-created_at')
+    return render(request, 'shop/order_list.html', {'orders': orders})
+
+@login_required
+def order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    status_updates = order.status_updates.all().order_by('-timestamp')
+    return render(request, 'shop/order_detail.html', {
+        'order': order,
+        'status_updates': status_updates
+    })
+
+def track_order(request):
+    # Status weights for progress calculation
+    status_weights = {
+        'pending': 0,
+        'processing': 20,
+        'confirmed': 40,
+        'shipped': 60,
+        'out_for_delivery': 80,
+        'delivered': 100,
+        'cancelled': -1,
+        'refunded': -1
+    }
+
+    # Get tracking number from either POST or GET
+    tracking_number = request.POST.get('tracking_number') or request.GET.get('order_number')
+    
+    if tracking_number:
+        try:
+            # Try to find order by tracking number or ID
+            try:
+                order = Order.objects.get(tracking_number=tracking_number)
+            except Order.DoesNotExist:
+                try:
+                    order = Order.objects.get(id=tracking_number)
+                except (Order.DoesNotExist, ValueError):
+                    messages.error(request, 'Order not found. Please check your tracking number.')
+                    return render(request, 'shop/track_order_form.html')
+
+            # Calculate progress percentage
+            progress_percentage = status_weights.get(order.status, 0)
+            
+            # If order is cancelled or refunded, show appropriate message
+            if order.status in ['cancelled', 'refunded']:
+                messages.warning(request, f'This order has been {order.status}.')
+                progress_percentage = 0
+
+            context = {
+                'order': order,
+                'progress_percentage': progress_percentage,
+                'status_updates': order.status_updates.all().order_by('-timestamp'),
+            }
+            
+            return render(request, 'shop/track_order.html', context)
+            
+        except Exception as e:
+            messages.error(request, 'An error occurred while tracking your order. Please try again.')
+            return render(request, 'shop/track_order_form.html')
+
+    # If no tracking number provided, show the tracking form
+    return render(request, 'shop/track_order_form.html')

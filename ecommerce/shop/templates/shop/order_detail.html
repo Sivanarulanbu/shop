@@ -1,0 +1,177 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}Order Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="card-title mb-0">Order #{{ order.tracking_number }}</h3>
+                        <span class="badge {% if order.status == 'pending' %}bg-warning
+                                   {% elif order.status == 'processing' %}bg-info
+                                   {% elif order.status == 'shipped' %}bg-primary
+                                   {% elif order.status == 'delivered' %}bg-success
+                                   {% elif order.status == 'cancelled' %}bg-danger
+                                   {% elif order.status == 'refunded' %}bg-secondary
+                                   {% else %}bg-secondary{% endif %} fs-6">
+                            {{ order.get_status_display }}
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-sm-6">
+                            <h5>Shipping Address</h5>
+                            <address>
+                                <strong>{{ order.first_name }} {{ order.last_name }}</strong><br>
+                                {{ order.address }}<br>
+                                {{ order.city }}, {{ order.state }} {{ order.zip_code }}<br>
+                                <abbr title="Email">Email:</abbr> {{ order.email }}
+                            </address>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>Order Info</h5>
+                            <p>
+                                <strong>Order Date:</strong><br>
+                                {{ order.created_at|date:"F d, Y" }}<br>
+                                <strong>Payment Method:</strong><br>
+                                {{ order.get_payment_method_display }}<br>
+                                <strong>Shipping Method:</strong><br>
+                                {{ order.get_shipping_method_display }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-end">Price</th>
+                                    <th class="text-end">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in order.items.all %}
+                                <tr>
+                                    <td>
+                                        <h6 class="mb-0">{{ item.product.name }}</h6>
+                                        <small class="text-muted">{{ item.product.sku }}</small>
+                                    </td>
+                                    <td class="text-center">{{ item.quantity }}</td>
+                                    <td class="text-end">${{ item.price }}</td>
+                                    <td class="text-end">${{ item.get_total_price }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-end"><strong>Total Amount:</strong></td>
+                                    <td class="text-end"><strong>${{ order.total_amount }}</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    {% if order.status_updates.all %}
+                    <div class="mt-4">
+                        <h5>Order Timeline</h5>
+                        <div class="timeline">
+                            {% for update in order.status_updates.all %}
+                            <div class="timeline-item" style="--status-color: {% if update.status == 'pending' %}#ffc107
+                                                                            {% elif update.status == 'processing' %}#17a2b8
+                                                                            {% elif update.status == 'shipped' %}#007bff
+                                                                            {% elif update.status == 'delivered' %}#28a745
+                                                                            {% elif update.status == 'cancelled' %}#dc3545
+                                                                            {% elif update.status == 'refunded' %}#6c757d
+                                                                            {% else %}#6c757d{% endif %};">
+                                <div class="timeline-date">{{ update.timestamp|date:"M d, Y H:i" }}</div>
+                                <div class="timeline-content">
+                                    <h6>{{ update.get_status_display }}</h6>
+                                    {% if update.note %}
+                                    <p class="text-muted">{{ update.note }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Need Help?</h5>
+                    <p class="card-text">If you have any questions about your order, please don't hesitate to contact us.</p>
+                    <a href="#" class="btn btn-outline-primary">Contact Support</a>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 mt-3">
+                <a href="{% url 'shop:order_list' %}" class="btn btn-secondary">Back to Orders</a>
+                <a href="{% url 'shop:product_list' %}" class="btn btn-primary">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--status-color, #007bff);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--status-color, #007bff);
+}
+
+.timeline-item:after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    width: 2px;
+    height: calc(100% + 8px);
+    background: #e9ecef;
+}
+
+.timeline-item:last-child:after {
+    display: none;
+}
+
+.timeline-date {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.timeline-content {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+}
+</style>
+{% endblock %}

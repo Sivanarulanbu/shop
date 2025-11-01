@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .tracking-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .tracking-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .order-details {
+            margin: 20px 0;
+        }
+        .order-items {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .order-items th,
+        .order-items td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .order-items th {
+            background-color: #f8f9fa;
+        }
+        .total {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="cid:logo" alt="Swiftbuy Logo" class="logo" style="max-width: 200px; margin-bottom: 20px;">
+            <h1>Order Confirmation</h1>
+            <p>Thank you for your order!</p>
+        </div>
+
+            <div class="tracking-info">
+            <p>Your order has been confirmed and is being processed.</p>
+            <p>Tracking Number: <span class="tracking-number">{{ order.tracking_number }}</span></p>
+            <p>You can track your order status here:</p>
+            <a href="{{ tracking_url }}" class="button" style="color: white;">Track Your Order</a>
+            <p style="font-size: 12px; margin-top: 10px;">
+                If the button doesn't work, copy and paste this URL into your browser:<br>
+                <span style="color: #007bff;">{{ tracking_url }}</span>
+            </p>
+            </div>        <div class="order-details">
+            <h2>Order Details</h2>
+            <p><strong>Order Number:</strong> #{{ order.id }}</p>
+            <p><strong>Order Date:</strong> {{ order.created_at|date:"F j, Y" }}</p>
+            <p><strong>Shipping Address:</strong></p>
+            <p>
+                {{ order.first_name }} {{ order.last_name }}<br>
+                {{ order.address }}<br>
+                {{ order.city }}, {{ order.state }} {{ order.zip_code }}
+            </p>
+        </div>
+
+        <table class="order-items">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% load static %}
+{% for item in order.items.all %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>${{ item.get_total_price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="total">
+            <p><strong>Subtotal:</strong> ${{ order.subtotal }}</p>
+            <p><strong>Shipping:</strong> ${{ order.shipping_cost }}</p>
+            <p><strong>Tax:</strong> ${{ order.tax }}</p>
+            <p><strong>Total:</strong> ${{ order.total_amount }}</p>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <p>If you have any questions about your order, please contact our customer service.</p>
+            <p>Thank you for shopping with us!</p>
+        </div>
+    </div>
+</body>
+</html>

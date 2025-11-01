@@ -1,0 +1,157 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}Shopping Cart{% endblock %}
+
+{% block content %}
+<style>
+    .cart-container {
+        background: var(--surface-2);
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card {
+        transition: transform 0.3s ease;
+        background: white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .product-card:hover {
+        transform: translateY(-2px);
+    }
+
+    .product-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+
+    .product-image:hover {
+        transform: scale(1.05);
+    }
+
+    .quantity-control {
+        max-width: 120px;
+        background: var(--surface-2);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .price {
+        font-weight: 600;
+        color: var(--primary);
+    }
+
+    .total-price {
+        font-size: 1.25rem;
+        color: var(--primary);
+    }
+
+    .remove-btn {
+        transition: all 0.3s ease;
+    }
+
+    .remove-btn:hover {
+        background: #dc3545;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    .empty-cart {
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .empty-cart i {
+        font-size: 4rem;
+        color: var(--text-2);
+        margin-bottom: 1rem;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="mb-4 fw-bold">Your Shopping Cart</h1>
+    {% if cart %}
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="cart-container">
+                    {% for item in cart %}
+                        {% with product=item.product %}
+                            <div class="product-card mb-3 p-3">
+                                <div class="d-flex align-items-center">
+                                    <a href="{{ product.get_absolute_url }}" class="d-block">
+                                        {% if product.image %}
+                                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                                        {% endif %}
+                                    </a>
+                                    <div class="ms-4 flex-grow-1">
+                                        <h5 class="mb-2">{{ product.name }}</h5>
+                                        <div class="quantity-control">
+                                            <form action="{% url 'shop:cart_add' product.id %}" method="post" 
+                                                  class="d-flex align-items-center">
+                                                {% csrf_token %}
+                                                {{ item.update_quantity_form.quantity }}
+                                                {{ item.update_quantity_form.override }}
+                                                <button type="submit" class="btn btn-sm btn-outline-primary ms-2">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="text-end ms-4">
+                                        <div class="price mb-2">${{ item.price }}</div>
+                                        <div class="total-price mb-2">${{ item.total_price }}</div>
+                                        <a href="{% url 'shop:cart_remove' product.id %}" 
+                                           class="remove-btn btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endwith %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart-container">
+                    <h4 class="mb-4">Cart Summary</h4>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Subtotal</span>
+                        <span class="total-price">${{ cart.get_total_price }}</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="fw-bold">Total</span>
+                        <span class="total-price fw-bold">${{ cart.get_total_price }}</span>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'shop:checkout' %}" class="btn btn-primary">
+                            <i class="fas fa-lock me-2"></i>Proceed to Checkout
+                        </a>
+                        <a href="{% url 'shop:product_list' %}" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left me-2"></i>Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="empty-cart cart-container text-center">
+            <i class="fas fa-shopping-cart mb-3"></i>
+            <h3 class="mb-3">Your cart is empty</h3>
+            <p class="text-muted mb-4">Looks like you haven't added any items to your cart yet.</p>
+            <a href="{% url 'shop:product_list' %}" class="btn btn-primary">
+                Start Shopping
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,265 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}Track Order - {{ order.tracking_number }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="order-tracking-card">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <h4>Order Status</h4>
+                            <h5 class="text-primary">Tracking Number: {{ order.tracking_number }}</h5>
+                        </div>
+
+                        <!-- Order Progress -->
+                        <div class="order-progress mb-5">
+                            <div class="progress-track">
+                                <div class="progress-bar" style="width: {{ progress_percentage }}%"></div>
+                                <div class="progress-step {% if order.status == 'pending' or order.status == 'processing' or order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}active{% endif %}" data-title="Order Placed">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="progress-step {% if order.status == 'processing' or order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}active{% endif %}" data-title="Processing">
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                                <div class="progress-step {% if order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}active{% endif %}" data-title="Confirmed">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="progress-step {% if order.status == 'shipped' or order.status == 'delivered' %}active{% endif %}" data-title="Shipped">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="progress-step {% if order.status == 'delivered' %}active{% endif %}" data-title="Delivered">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Current Status -->
+                        <div class="current-status text-center mb-4">
+                            <span class="status-badge status-{{ order.status }}">{{ order.get_status_display }}</span>
+                            {% if order.estimated_delivery %}
+                                <p class="mt-2">Estimated Delivery: {{ order.estimated_delivery|date:"F d, Y" }}</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- Order Timeline -->
+                        <div class="timeline mt-4">
+                            {% for status in order.status_updates.all %}
+                            <div class="timeline-item {% if status.status == order.status %}active{% endif %}">
+                                <div class="timeline-date">
+                                    {{ status.timestamp|date:"M d, Y" }} at {{ status.timestamp|time:"h:i A" }}
+                                </div>
+                                <div class="timeline-content">
+                                    <h6>{{ status.get_status_display }}</h6>
+                                    {% if status.note %}
+                                        <p class="text-muted">{{ status.note }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Order Details -->
+                        <div class="order-details mt-5">
+                            <h5 class="mb-3">Order Details</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>Shipping Address</h6>
+                                    <address>
+                                        {{ order.first_name }} {{ order.last_name }}<br>
+                                        {{ order.address }}<br>
+                                        {{ order.city }}, {{ order.state }} {{ order.zip_code }}
+                                    </address>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Order Summary</h6>
+                                    <p>
+                                        Order Date: {{ order.created_at|date:"F d, Y" }}<br>
+                                        Payment Method: {{ order.get_payment_method_display }}<br>
+                                        Shipping Method: {{ order.get_shipping_method_display }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Items -->
+                        <div class="order-items mt-4">
+                            <h5 class="mb-3">Items in Your Order</h5>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th class="text-center">Quantity</th>
+                                            <th class="text-end">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in order.items.all %}
+                                        <tr>
+                                            <td>{{ item.product.name }}</td>
+                                            <td class="text-center">{{ item.quantity }}</td>
+                                            <td class="text-end">${{ item.price }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        <tr>
+                                            <td colspan="2" class="text-end"><strong>Subtotal:</strong></td>
+                                            <td class="text-end">${{ order.subtotal }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-end"><strong>Shipping:</strong></td>
+                                            <td class="text-end">${{ order.shipping_cost }}</td>
+                                        </tr>
+                                        {% if order.tax %}
+                                        <tr>
+                                            <td colspan="2" class="text-end"><strong>Tax:</strong></td>
+                                            <td class="text-end">${{ order.tax }}</td>
+                                        </tr>
+                                        {% endif %}
+                                        <tr>
+                                            <td colspan="2" class="text-end"><strong>Total:</strong></td>
+                                            <td class="text-end"><strong>${{ order.total_amount }}</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Help Section -->
+                        <div class="help-section mt-4">
+                            <div class="alert alert-info">
+                                <h6>Need Help?</h6>
+                                <p class="mb-2">If you have any questions about your order, we're here to help!</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Contact Support</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.order-progress {
+    position: relative;
+    padding: 0 40px;
+}
+
+.progress-track {
+    position: relative;
+    height: 4px;
+    background: #e9ecef;
+    margin: 50px 0;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 4px;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+}
+
+.progress-step {
+    position: absolute;
+    top: -18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 4px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
+}
+
+.progress-step.active {
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.progress-step:nth-child(2) { left: 0%; }
+.progress-step:nth-child(3) { left: 25%; }
+.progress-step:nth-child(4) { left: 50%; }
+.progress-step:nth-child(5) { left: 75%; }
+.progress-step:nth-child(6) { left: 100%; }
+
+.progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 45px;
+    font-size: 12px;
+    color: #6c757d;
+    width: 100px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.status-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.status-pending { background-color: #fff3cd; color: #856404; }
+.status-processing { background-color: #cff4fc; color: #055160; }
+.status-confirmed { background-color: #d1e7dd; color: #0f5132; }
+.status-shipped { background-color: #cfe2ff; color: #084298; }
+.status-delivered { background-color: #d1e7dd; color: #146c43; }
+.status-cancelled { background-color: #f8d7da; color: #842029; }
+.status-refunded { background-color: #e2e3e5; color: #41464b; }
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px;
+    border-left: 2px solid #e9ecef;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #6c757d;
+}
+
+.timeline-item.active::before {
+    background: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.timeline-date {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.timeline-content {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.timeline-item.active .timeline-content {
+    background-color: #e8f2ff;
+    border-left: 3px solid #3b82f6;
+}
+</style>
+{% endblock %}

@@ -7,15 +7,6 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from .models import Order, OrderItem, OrderStatus, Product
 
-@receiver(post_save, sender=OrderItem)
-def update_product_stock(sender, instance, created, **kwargs):
-    """
-    Update product stock when an order item is created or updated
-    """
-    if created:  # Only reduce stock when the order item is first created
-        product = instance.product
-        product.stock -= instance.quantity
-        product.save()
 
 @receiver(post_delete, sender=OrderItem)
 def restore_product_stock(sender, instance, **kwargs):
@@ -51,28 +42,42 @@ def check_low_stock(sender, instance, **kwargs):
 @receiver(post_save, sender=Order)
 def order_status_notification(sender, instance, created, **kwargs):
     """
-    Send notifications when order status changes
+    Send notifications when order is created or status changes
     """
-    if not created and instance.status != instance.tracker.previous('status'):
-        # Order status has changed
+    # Only send email if order has a tracking number
+    if not instance.tracking_number:
+        return
+    
+    # Check if this is a status change (not creation)
+    status_changed = not created and instance.status != instance.tracker.previous('status')
+    
+    # Send email for new orders or status changes
+    if created or status_changed:
         context = {
             'order': instance,
             'status': instance.get_status_display(),
-            'tracking_number': instance.tracking_number
+            'tracking_number': instance.tracking_number,
+            'is_new_order': created
         }
         
-        # Send email notification
-        html_message = render_to_string('shop/email/order_status_update.html', context)
-        plain_message = render_to_string('shop/email/order_status_update.txt', context)
-        
-        send_mail(
-            f'Order #{instance.id} Status Update',
-            plain_message,
-            settings.DEFAULT_FROM_EMAIL,
-            [instance.email],
-            html_message=html_message,
-            fail_silently=True,
-        )
+        # Choose appropriate template based on whether it's a new order or status update
+        if created:
+            # For new orders, this would be handled by send_order_confirmation_email in utils
+            # So we skip sending duplicate email here
+            return
+        else:
+            # Send status update email
+            html_message = render_to_string('shop/email/order_status_update.html', context)
+            plain_message = render_to_string('shop/email/order_status_update.txt', context)
+            
+            send_mail(
+                f'Order #{instance.id} Status Update',
+                plain_message,
+                settings.DEFAULT_FROM_EMAIL,
+                [instance.email],
+                html_message=html_message,
+                fail_silently=True,
+            )
 
 @receiver(post_save, sender=OrderStatus)
 def create_order_status_history(sender, instance, created, **kwargs):

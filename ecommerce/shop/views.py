@@ -178,117 +178,14 @@ def checkout(request):
                     # Step 1: Validate cart and get locked products
                     products_dict = validate_cart(cart, user_id=request.user.id)
                     
-                    # Step 2: Create the order
+                    # Step 2: Create the order (includes tracking number generation)
                     order = create_order(form, cart, request.user, products_dict)
-
-                    # Check product availability and stock with proper locking
-                    unavailable_products = []
-                    products_to_update = []
-                    
-                    # Lock the products for update
-                    product_ids = [item['product'].id for item in cart]
-                    products = Product.objects.select_for_update().filter(id__in=product_ids)
-                    products_dict = {p.id: p for p in products}
-                    
-                    for item in cart:
-                        product_id = item['product'].id
-                        product = products_dict.get(product_id)
-                        
-                        if not product:
-                            unavailable_products.append(f"{item['product'].name} is no longer available")
-                            continue
-                            
-                        if not product.available:
-                            unavailable_products.append(f"{product.name} is no longer available for purchase")
-                        elif product.stock < item['quantity']:
-                            unavailable_products.append(
-                                f"{product.name} has insufficient stock (requested: {item['quantity']}, "
-                                f"available: {product.stock})"
-                            )
-                        else:
-                            # Store product and quantity for later update
-                            products_to_update.append((product, item['quantity']))
-                    
-                    if unavailable_products:
-                        transaction.set_rollback(True)
-                        messages.error(request, "Unable to complete your order due to the following issues:")
-                        for msg in unavailable_products:
-                            messages.error(request, msg)
-                        return redirect('shop:cart_detail')
-
-                    # Create order
-                    order = form.save(commit=False)
-                    order.user = request.user
-                    order.status = 'pending'
-                    order.payment_status = 'pending'
-                    
-                    # Set estimated delivery
-                    today = date.today()
-                    if order.shipping_method == 'express':
-                        order.estimated_delivery = today + timedelta(days=3)
-                    elif order.shipping_method == 'standard':
-                        order.estimated_delivery = today + timedelta(days=7)
-                    elif order.shipping_method == 'pickup':
-                        order.estimated_delivery = today + timedelta(days=1)
-
-                    # Calculate totals
-                    subtotal = Decimal(str(cart.get_total_price()))
-                    shipping_cost = Decimal('0.00')
-                    
-                    if order.shipping_method == 'standard':
-                        shipping_cost = Decimal('5.00')
-                    elif order.shipping_method == 'express':
-                        shipping_cost = Decimal('15.00')
-                    
-                    tax = (subtotal + shipping_cost) * Decimal('0.10')
-                    
-                    order.subtotal = subtotal
-                    order.shipping_cost = shipping_cost
-                    order.tax = tax
-                    order.total_amount = subtotal + shipping_cost + tax
-
-                    # Generate tracking number
-                    tracking_number = get_random_string(10).upper()
-                    order.tracking_number = tracking_number
-                    order.save()
 
                     # Step 3: Create order items and update stock
                     create_order_items(order, cart, products_dict)
                     
                     # Step 4: Process payment and update status
                     process_payment(order)
-                    
-                    # Create initial success status
-                    OrderStatus.objects.create(
-                        order=order,
-                        status='pending',
-                        note='Order placed successfully',
-                        created_by=request.user
-                    )
-
-                    # Process payment
-                    if order.payment_method == 'cash_on_delivery':
-                        new_status = 'confirmed'
-                        payment_status = 'pending'
-                        status_note = 'Order confirmed - Cash on Delivery'
-                    else:
-                        new_status = 'processing'
-                        payment_status = 'completed'
-                        status_note = 'Payment processed successfully'
-
-                    # Update order status
-                    validate_order_status(new_status)
-                    order.status = new_status
-                    order.payment_status = payment_status
-                    order.save()
-
-                    # Create payment status update
-                    OrderStatus.objects.create(
-                        order=order,
-                        status=new_status,
-                        note=status_note,
-                        created_by=request.user
-                    )
 
                     # Send confirmation email
                     try:

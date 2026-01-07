@@ -46,14 +46,22 @@ class Cart:
         Iterate over the items in the cart and get the products from the database.
         """
         product_ids = self.cart.keys()
-        # get the product objects and add them to the cart
         products = Product.objects.filter(id__in=product_ids)
-        cart = self.cart.copy()
         
-        for product in products:
-            cart[str(product.id)]['product'] = product
+        # Determine found products and clean up missing ones
+        found_ids = {str(p.id) for p in products}
+        all_ids = set(self.cart.keys())
+        missing_ids = all_ids - found_ids
+        
+        if missing_ids:
+            for pid in missing_ids:
+                del self.cart[pid]
+            self.save()
 
-        for item in cart.values():
+        # Build clean cart for iteration
+        for product in products:
+            item = self.cart[str(product.id)]
+            item['product'] = product
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
             yield item
@@ -74,5 +82,6 @@ class Cart:
         """
         Remove cart from session
         """
-        del self.session[settings.CART_SESSION_ID]
-        self.save()
+        if settings.CART_SESSION_ID in self.session:
+            del self.session[settings.CART_SESSION_ID]
+            self.save()

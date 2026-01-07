@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +11,19 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'logo/logo.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'logo/logo.png' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'logo/logo.png' %}">
-    <meta name="theme-color" content="#3577F0">
+    <meta name="theme-color" content="#2563EB">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
 
     <link href="{% static 'css/order.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-<style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.2">
+    <style>
         /* Top Bar */
         .top-bar {
             background: var(--light);
@@ -108,7 +111,7 @@
         /* Navigation */
         .main-nav {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
 
         .nav-link {
@@ -132,7 +135,7 @@
 
         .dropdown-menu {
             border: none;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             margin-top: 0;
         }
 
@@ -184,9 +187,10 @@
         .action-btn i {
             font-size: 22px;
         }
-</style>
-    
+    </style>
+
 </head>
+
 <body>
     <!-- Top Bar -->
     <div class="top-bar d-none d-lg-block">
@@ -234,11 +238,10 @@
                                 <i class="far fa-user"></i>
                             </a>
                             <div class="user-menu">
-                                <div class="px-3 py-2 mb-2">
-                                    <p class="mb-0">Hello, {{user.first_name}}</p>
-                                    <small class="text-muted">{{user.email}}</small>
+                                <div class="px-3 py-3 text-center">
+                                    <p class="mb-0 fw-bold">Hello, {{user.first_name|default:user.username}}</p>
                                 </div>
-                                <hr>
+                                <hr class="m-0">
                                 <a href="#" class="user-menu-link">
                                     <i class="fas fa-user-circle"></i>
                                     My Profile
@@ -251,7 +254,14 @@
                                     <i class="far fa-heart"></i>
                                     Wishlist
                                 </a>
-                                <hr>
+                                {% if user.is_staff %}
+                                <hr class="m-0">
+                                <a href="{% url 'admin_dashboard' %}" class="user-menu-link text-primary fw-bold">
+                                    <i class="fas fa-chart-line"></i>
+                                    Dashboard
+                                </a>
+                                {% endif %}
+                                <hr class="m-0">
                                 <a href="{% url 'accounts:logout' %}" class="user-menu-link text-danger">
                                     <i class="fas fa-sign-out-alt"></i>
                                     Logout
@@ -259,9 +269,31 @@
                             </div>
                         </div>
                         {% else %}
-                        <a href="{% url 'accounts:login' %}" class="action-btn">
-                            <i class="far fa-user"></i>
-                        </a>
+                        <div class="user-dropdown">
+                            <a href="#" class="action-btn">
+                                <i class="far fa-user"></i>
+                            </a>
+                            <div class="user-menu">
+                                <div class="px-3 py-2">
+                                    <p class="mb-0 fw-bold">Welcome!</p>
+                                    <small class="text-muted">Choose your portal</small>
+                                </div>
+                                <hr class="my-1">
+                                <a href="{% url 'accounts:customer_login' %}" class="user-menu-link">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    Customer Login
+                                </a>
+                                <a href="{% url 'accounts:admin_login' %}" class="user-menu-link">
+                                    <i class="fas fa-user-shield"></i>
+                                    Admin Login
+                                </a>
+                                <hr class="my-1">
+                                <a href="{% url 'accounts:register' %}" class="user-menu-link">
+                                    <i class="fas fa-user-plus"></i>
+                                    Register
+                                </a>
+                            </div>
+                        </div>
                         {% endif %}
                         <a href="#" class="action-btn">
                             <i class="far fa-heart"></i>
@@ -270,11 +302,11 @@
                         <a href="{% url 'shop:cart_detail' %}" class="action-btn">
                             <i class="fas fa-shopping-cart" style="font-size: 22px;"></i>
                             {% with total_items=cart|length %}
-                                {% if total_items > 0 %}
-                                    <span class="badge">{{ total_items }}</span>
-                                {% else %}
-                                    <span class="badge">0</span>
-                                {% endif %}
+                            {% if total_items > 0 %}
+                            <span class="badge">{{ total_items }}</span>
+                            {% else %}
+                            <span class="badge">0</span>
+                            {% endif %}
                             {% endwith %}
                         </a>
                     </div>
@@ -342,12 +374,14 @@
                 <div class="col-lg-4">
                     <div class="footer-widget">
                         <a href="{% url 'shop:product_list' %}" class="navbar-brand mb-4 d-inline-block">Swiftbuy</a>
-                        <p>Your premium shopping destination for quality products and exceptional service. We offer a wide range of products at competitive prices.</p>
+                        <p>Your premium shopping destination for quality products and exceptional service. We offer a
+                            wide range of products at competitive prices.</p>
                         <div class="social-links mt-4">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/sivanarul-anbu-874b701b9/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/in/sivanarul-anbu-874b701b9/"><i
+                                    class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
@@ -395,19 +429,21 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/ui-enhancements.js' %}"></script>
     <script>
         // Enable Bootstrap dropdowns on hover
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const dropdowns = document.querySelectorAll('.dropdown');
             dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('mouseover', function() {
+                dropdown.addEventListener('mouseover', function () {
                     this.querySelector('.dropdown-menu').classList.add('show');
                 });
-                dropdown.addEventListener('mouseleave', function() {
+                dropdown.addEventListener('mouseleave', function () {
                     this.querySelector('.dropdown-menu').classList.remove('show');
                 });
             });
         });
     </script>
 </body>
+
 </html>

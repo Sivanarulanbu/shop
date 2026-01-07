@@ -1,17 +1,29 @@
 :root {
-    --primary: #3577F0;
+    --primary: #2563EB;
     --secondary: #ff497c;
-    --heading: #292930;
-    --text: #777777;
-    --light: #F6F7FB;
-    --border: #F1F1F1;
-    --transition: 0.3s ease-in-out;
+    --heading: #111827;
+    --text: #4B5563;
+    --light: #F3F4F6;
+    --border: #E5E7EB;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: var(--text);
+    background-color: #ffffff;
     overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Inter', sans-serif;
+    color: var(--heading);
+    font-weight: 600;
 }
 
 /* Top Bar */
@@ -101,7 +113,7 @@ body {
 /* Navigation */
 .main-nav {
     background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .nav-link {
@@ -125,7 +137,7 @@ body {
 
 .dropdown-menu {
     border: none;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     margin-top: 0;
 }
 
@@ -382,12 +394,13 @@ body {
     width: 220px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    padding: 15px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 0;
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
     transition: var(--transition);
+    overflow: hidden;
 }
 
 .user-dropdown:hover .user-menu {
@@ -399,7 +412,7 @@ body {
 .user-menu-link {
     display: flex;
     align-items: center;
-    padding: 8px 20px;
+    padding: 6px 20px;
     color: var(--heading);
     text-decoration: none;
     transition: var(--transition);
@@ -417,7 +430,7 @@ body {
 }
 
 .user-menu hr {
-    margin: 10px 0;
+    margin: 0;
     border-color: var(--border);
 }
 
@@ -425,7 +438,7 @@ body {
     .search-form {
         margin: 20px 0;
     }
-    
+
     .header-action {
         margin-top: 15px;
         justify-content: center;
@@ -441,4 +454,314 @@ body {
     .navbar-brand:hover {
         transform: none;
     }
+}
+
+/* --- Added UI Enhancements --- */
+
+/* Product Card Enhancements */
+.product-card {
+    transition: transform var(--transition), box-shadow var(--transition);
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    /* Fixed height for consistency */
+    background: #f8f9fa;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.product-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Custom Checkboxes and Pills */
+.filter-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.filter-pill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.filter-pill-item {
+    display: inline-block;
+}
+
+.filter-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 13px;
+    background: #ffffff;
+    color: var(--text);
+    user-select: none;
+}
+
+.filter-pill:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filter-pill.active {
+    background: var(--primary);
+    color: white !important;
+    border-color: var(--primary);
+}
+
+.custom-checkbox-item {
+    margin-bottom: 10px;
+}
+
+.custom-checkbox-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.custom-checkbox-item label:hover {
+    color: var(--primary);
+}
+
+.custom-checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+/* Price Range Slider */
+.price-slider-wrapper {
+    padding: 10px 5px;
+}
+
+/* Checkout Stepper */
+.checkout-stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkout-stepper::before {
+    content: '';
+    position: absolute;
+    top: 17px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: var(--border);
+    z-index: 1;
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 0 10px;
+    text-align: center;
+    flex: 1;
+}
+
+.step-number {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: white;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    border: 2px solid var(--border);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.step.active .step-number {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(53, 119, 240, 0.1);
+}
+
+.step.completed .step-number {
+    background: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.step-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.step.active .step-label {
+    color: var(--heading);
+    font-weight: 600;
+}
+
+/* Sticky Mobile Add to Cart */
+.sticky-mobile-cart {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 12px 20px;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .sticky-mobile-cart.show {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+/* Form Validation */
+.validation-feedback {
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.is-valid+.validation-feedback {
+    color: #4CAF50;
+    display: block;
+}
+
+.is-invalid+.validation-feedback {
+    color: #ff497c;
+    display: block;
+}
+
+/* Product Detail Prominent Price */
+.prominent-price {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 10px 0;
+    display: block;
+}
+
+/* Trust Signals */
+.trust-signals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.trust-signal-item {
+    text-align: center;
+}
+
+.trust-signal-item i {
+    font-size: 20px;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.trust-signal-item span {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--heading);
+    letter-spacing: 0.5px;
+}
+
+/* Order Summary */
+.order-summary-box {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid var(--border);
+}
+
+/* Role Selection Design */
+.role-card {
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.role-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.role-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: var(--light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 32px;
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.role-card:hover .role-icon-wrapper {
+    background: var(--primary);
+    color: white;
 }

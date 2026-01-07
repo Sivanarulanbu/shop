@@ -3,13 +3,14 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.views.decorators.http import require_POST
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from decimal import Decimal
 from django.utils.crypto import get_random_string
 from datetime import date, timedelta
-from .models import Product, Category, Brand, Order, OrderItem, OrderStatus
+from .models import Product, Category, Brand, Order, OrderItem, OrderStatus, Transaction
 from .forms import ProductFilterForm, CartAddProductForm, CheckoutForm
 from .cart import Cart
 from .utils.logging import log_order_processing, OrderError, order_logger
@@ -384,3 +385,66 @@ def track_order(request):
 
     # If no tracking number provided, show the tracking form
     return render(request, 'shop/track_order_form.html')
+
+@login_required
+def order_invoice(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    # Only allow user who placed order or staff to view invoice
+    if order.user != request.user and not request.user.is_staff:
+        messages.error(request, "Access denied.")
+        return redirect('shop:product_list')
+        
+    return render(request, 'shop/invoice.html', {'order': order})
+
+from django.contrib.admin.views.decorators import staff_member_required
+from django.db.models import Sum, Count, F
+from django.utils import timezone
+from datetime import timedelta
+
+@staff_member_required
+def admin_dashboard(request, extra_context=None):
+    now = timezone.now()
+    month_ago = now - timedelta(days=30)
+    
+    # Financial Stats
+    total_sales = Order.objects.filter(payment_status='completed').aggregate(Sum('total_amount'))['total_amount__sum'] or 0
+    month_sales = Order.objects.filter(payment_status='completed', created_at__gte=month_ago).aggregate(Sum('total_amount'))['total_amount__sum'] or 0
+    total_orders = Order.objects.count()
+    total_customers = User.objects.filter(orders__isnull=False).distinct().count()
+    
+    # Best Sellers
+    best_sellers = OrderItem.objects.values('product__name').annotate(
+        total_sold=Sum('quantity'),
+        total_revenue=Sum(F('price') * F('quantity'))
+    ).order_by('-total_sold')[:5]
+    
+    # Inventory Alerts
+    inventory_alerts = Product.objects.filter(stock__lte=F('low_stock_threshold'))[:10]
+    
+    # Recent Transactions
+    recent_transactions = Transaction.objects.order_by('-created_at')[:10]
+    
+    # Sales by Category
+    sales_by_category = OrderItem.objects.values('product__category__name').annotate(
+        total_rev=Sum(F('price') * F('quantity'))
+    ).order_by('-total_rev')
+    
+    # Get standard admin app list
+    from django.contrib import admin
+    app_list = admin.site.get_app_list(request)
+    
+    context = {
+        'total_sales': total_sales,
+        'month_sales': month_sales,
+        'total_orders': total_orders,
+        'total_customers': total_customers,
+        'best_sellers': best_sellers,
+        'inventory_alerts': inventory_alerts,
+        'recent_transactions': recent_transactions,
+        'sales_by_category': sales_by_category,
+        'app_list': app_list,
+        'title': 'Analytics Dashboard',
+        **(extra_context or {})
+    }
+    
+    return render(request, 'shop/admin_dashboard.html', context)

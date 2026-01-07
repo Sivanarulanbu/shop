@@ -4,10 +4,10 @@ from .models import Category, Brand, Order
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
 
 class CartAddProductForm(forms.Form):
-    quantity = forms.TypedChoiceField(
-        choices=PRODUCT_QUANTITY_CHOICES,
-        coerce=int,
-        widget=forms.Select(attrs={'class': 'form-control'})
+    quantity = forms.IntegerField(
+        min_value=1,
+        initial=1,
+        widget=forms.NumberInput(attrs={'class': 'form-control', 'min': '1'})
     )
     override = forms.BooleanField(
         required=False,
@@ -47,15 +47,14 @@ class ProductFilterForm(forms.Form):
     category = forms.ModelChoiceField(
         queryset=Category.objects.all(),
         required=False,
-        empty_label='All Categories',
-        widget=forms.Select(attrs={'class': 'form-control'})
+        empty_label='All',
+        widget=forms.RadioSelect(attrs={'class': 'd-none'})
     )
     
-    brand = forms.ModelChoiceField(
+    brand = forms.ModelMultipleChoiceField(
         queryset=Brand.objects.all(),
         required=False,
-        empty_label='All Brands',
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'})
     )
     
     price_range = forms.ChoiceField(

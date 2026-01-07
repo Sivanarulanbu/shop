@@ -11,15 +11,21 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3 class="card-title mb-0">Order #{{ order.tracking_number }}</h3>
-                        <span class="badge {% if order.status == 'pending' %}bg-warning
-                                   {% elif order.status == 'processing' %}bg-info
-                                   {% elif order.status == 'shipped' %}bg-primary
-                                   {% elif order.status == 'delivered' %}bg-success
-                                   {% elif order.status == 'cancelled' %}bg-danger
-                                   {% elif order.status == 'refunded' %}bg-secondary
-                                   {% else %}bg-secondary{% endif %} fs-6">
-                            {{ order.get_status_display }}
-                        </span>
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="{% url 'shop:track_order' %}?order_number={{ order.tracking_number }}"
+                                class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-truck me-1"></i> Track Order
+                            </a>
+                            <span class="badge {% if order.status == 'pending' %}bg-warning
+                                       {% elif order.status == 'processing' %}bg-info
+                                       {% elif order.status == 'shipped' %}bg-primary
+                                       {% elif order.status == 'delivered' %}bg-success
+                                       {% elif order.status == 'cancelled' %}bg-danger
+                                       {% elif order.status == 'refunded' %}bg-secondary
+                                       {% else %}bg-secondary{% endif %} fs-6">
+                                {{ order.get_status_display }}
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -110,7 +116,8 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Need Help?</h5>
-                    <p class="card-text">If you have any questions about your order, please don't hesitate to contact us.</p>
+                    <p class="card-text">If you have any questions about your order, please don't hesitate to contact
+                        us.</p>
                     <a href="#" class="btn btn-outline-primary">Contact Support</a>
                 </div>
             </div>
@@ -124,54 +131,54 @@
 </div>
 
 <style>
-.timeline {
-    position: relative;
-    padding: 20px 0;
-}
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+    }
 
-.timeline-item {
-    position: relative;
-    padding-left: 40px;
-    margin-bottom: 20px;
-}
+    .timeline-item {
+        position: relative;
+        padding-left: 40px;
+        margin-bottom: 20px;
+    }
 
-.timeline-item:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 12px;
-    height: 12px;
-    background: var(--status-color, #007bff);
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 2px var(--status-color, #007bff);
-}
+    .timeline-item:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 12px;
+        height: 12px;
+        background: var(--status-color, #007bff);
+        border-radius: 50%;
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 2px var(--status-color, #007bff);
+    }
 
-.timeline-item:after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 12px;
-    width: 2px;
-    height: calc(100% + 8px);
-    background: #e9ecef;
-}
+    .timeline-item:after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 12px;
+        width: 2px;
+        height: calc(100% + 8px);
+        background: #e9ecef;
+    }
 
-.timeline-item:last-child:after {
-    display: none;
-}
+    .timeline-item:last-child:after {
+        display: none;
+    }
 
-.timeline-date {
-    font-size: 0.875rem;
-    color: #6c757d;
-    margin-bottom: 5px;
-}
+    .timeline-date {
+        font-size: 0.875rem;
+        color: #6c757d;
+        margin-bottom: 5px;
+    }
 
-.timeline-content {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 4px;
-}
+    .timeline-content {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 4px;
+    }
 </style>
 {% endblock %}

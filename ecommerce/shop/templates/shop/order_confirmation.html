@@ -11,16 +11,16 @@
                 <div class="card-body text-center">
                     <h2 class="card-title text-success mb-4">Order Confirmed!</h2>
                     <p class="lead">Thank you for your order. Your order has been successfully placed.</p>
-                    
+
                     <div class="order-status mb-4">
-                        <div class="alert {% if order.status == 'pending' %}alert-warning{% elif order.status == 'processing' %}alert-info{% elif order.status == 'confirmed' %}alert-success{% elif order.status == 'cancelled' %}alert-danger{% else %}alert-info{% endif %}">
+                        <div
+                            class="alert {% if order.status == 'pending' %}alert-warning{% elif order.status == 'processing' %}alert-info{% elif order.status == 'confirmed' %}alert-success{% elif order.status == 'cancelled' %}alert-danger{% else %}alert-info{% endif %}">
                             <h4 class="mb-2">Order Status: {{ order.get_status_display }}</h4>
-                            {% if order.status_updates.exists %}
-                                <p class="mb-0"><small>Last Update: {{ order.status_updates.first.timestamp|date:"F j, Y, g:i a" }}</small></p>
-                            {% endif %}
+                            <p class="mb-0"><small>Last Update: {{ order.status_updates.first.timestamp|date:"F j, Y,
+                                    g:i a" }}</small></p>
                         </div>
                     </div>
-                    
+
                     <div class="tracking-section mb-4">
                         <div class="alert alert-info">
                             <h4 class="mb-3">Track Your Order</h4>
@@ -33,13 +33,15 @@
                             {% else %}
                             <p class="mb-2">You can use this tracking number to monitor your order status.</p>
                             {% endif %}
-                            <a href="{% url 'shop:track_order' %}" class="btn btn-primary">Track Order</a>
+                            <a href="{% url 'shop:track_order' %}?order_number={{ order.tracking_number }}"
+                                class="btn btn-primary">Track Order</a>
                         </div>
-                        <p class="text-muted small">* A confirmation email has been sent to {{ order.email }} with your tracking number and order details.</p>
+                        <p class="text-muted small">* A confirmation email has been sent to {{ order.email }} with your
+                            tracking number and order details.</p>
                     </div>
-                    
+
                     <hr>
-                    
+
                     <h4>Order Details</h4>
                     <div class="table-responsive mt-3">
                         {% if order.items.exists %}
@@ -61,11 +63,11 @@
                                     <td>${{ item.get_total_price|default:"0.00" }}</td>
                                 </tr>
                                 {% endfor %}
-                        {% else %}
-                        <div class="alert alert-warning">
-                            <p>No items found in this order.</p>
-                        </div>
-                        {% endif %}
+                                {% else %}
+                                <div class="alert alert-warning">
+                                    <p>No items found in this order.</p>
+                                </div>
+                                {% endif %}
                                 <tr>
                                     <td colspan="3" class="text-end"><strong>Total:</strong></td>
                                     <td><strong>${{ order.total_amount }}</strong></td>
@@ -73,9 +75,9 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <hr>
-                    
+
                     <div class="shipping-details mt-4">
                         <h4>Shipping Details</h4>
                         <p>
@@ -84,7 +86,7 @@
                             {{ order.city }}, {{ order.state }} {{ order.zip_code }}
                         </p>
                     </div>
-                    
+
                     <div class="mt-4">
                         <a href="{% url 'shop:order_list' %}" class="btn btn-primary">View All Orders</a>
                         <a href="{% url 'shop:product_list' %}" class="btn btn-outline-secondary">Continue Shopping</a>

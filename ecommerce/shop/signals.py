@@ -24,11 +24,11 @@ def check_low_stock(sender, instance, **kwargs):
     """
     try:
         old_instance = Product.objects.get(pk=instance.pk)
-        # Check if stock has been updated
-        if old_instance.stock != instance.stock and instance.stock <= 5:
+        # Check if stock has been updated and is now below threshold
+        if old_instance.stock != instance.stock and instance.stock <= instance.low_stock_threshold:
             # Send low stock notification
             subject = f'Low Stock Alert: {instance.name}'
-            message = f'Product {instance.name} has low stock ({instance.stock} remaining)'
+            message = f'Product {instance.name} has low stock ({instance.stock} remaining). Threshold is {instance.low_stock_threshold}.'
             send_mail(
                 subject,
                 message,
@@ -39,6 +39,10 @@ def check_low_stock(sender, instance, **kwargs):
     except Product.DoesNotExist:
         pass  # New product being created
 
+import logging
+
+logger = logging.getLogger('shop.signals')
+
 @receiver(post_save, sender=Order)
 def order_status_notification(sender, instance, created, **kwargs):
     """
@@ -46,6 +50,7 @@ def order_status_notification(sender, instance, created, **kwargs):
     """
     # Only send email if order has a tracking number
     if not instance.tracking_number:
+        logger.info(f"Order #{instance.id} saved without tracking number. Skipping email.")
         return
     
     # Check if this is a status change (not creation)
@@ -53,6 +58,7 @@ def order_status_notification(sender, instance, created, **kwargs):
     
     # Send email for new orders or status changes
     if created or status_changed:
+        logger.info(f"Triggering notification for Order #{instance.id}. Created: {created}, Status changed: {status_changed}")
         context = {
             'order': instance,
             'status': instance.get_status_display(),
@@ -64,20 +70,26 @@ def order_status_notification(sender, instance, created, **kwargs):
         if created:
             # For new orders, this would be handled by send_order_confirmation_email in utils
             # So we skip sending duplicate email here
+            logger.info(f"Order #{instance.id} is new. Confirmation email should be handled by views/utils.")
             return
         else:
             # Send status update email
-            html_message = render_to_string('shop/email/order_status_update.html', context)
-            plain_message = render_to_string('shop/email/order_status_update.txt', context)
-            
-            send_mail(
-                f'Order #{instance.id} Status Update',
-                plain_message,
-                settings.DEFAULT_FROM_EMAIL,
-                [instance.email],
-                html_message=html_message,
-                fail_silently=True,
-            )
+            logger.info(f"Sending status update email for Order #{instance.id} to {instance.email}. New status: {instance.status}")
+            try:
+                html_message = render_to_string('shop/email/order_status_update.html', context)
+                plain_message = render_to_string('shop/email/order_status_update.txt', context)
+                
+                send_mail(
+                    f'Order #{instance.id} Status Update',
+                    plain_message,
+                    settings.DEFAULT_FROM_EMAIL,
+                    [instance.email],
+                    html_message=html_message,
+                    fail_silently=False,  # Set to False to catch errors in logs
+                )
+                logger.info(f"Status update email sent successfully for Order #{instance.id}")
+            except Exception as e:
+                logger.error(f"Failed to send status update email for Order #{instance.id}: {str(e)}")
 
 @receiver(post_save, sender=OrderStatus)
 def create_order_status_history(sender, instance, created, **kwargs):

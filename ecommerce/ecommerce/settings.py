@@ -1,5 +1,4 @@
-## 1. settings.py
-
+## Force reload
 import os
 from pathlib import Path
 

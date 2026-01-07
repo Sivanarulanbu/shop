@@ -26,15 +26,15 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     description = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2, db_index=True)
     original_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='products')
     image = models.ImageField(upload_to='products/', blank=True)
     stock = models.PositiveIntegerField(default=0)
     low_stock_threshold = models.PositiveIntegerField(default=5)
-    available = models.BooleanField(default=True)
-    featured = models.BooleanField(default=False)
+    available = models.BooleanField(default=True, db_index=True)
+    featured = models.BooleanField(default=False, db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -44,6 +44,9 @@ class Product(models.Model):
     
     class Meta:
         ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['-created_at']),
+        ]
     
     def __str__(self):
         return self.name
@@ -53,8 +56,8 @@ class Product(models.Model):
     
     @property
     def discount_percentage(self):
-        if self.original_price:
-            return int(((self.original_price - self.price) / self.original_price) * 100)
+        if self.original_price and self.original_price > self.price:
+            return round(((self.original_price - self.price) / self.original_price) * 100)
         return 0
 
 class ProductImage(models.Model):

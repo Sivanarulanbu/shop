@@ -4098,3 +4098,1194 @@ INFO 2026-01-07 09:47:58,189 basehttp 15364 6464 "GET /admin/ HTTP/1.1" 200 3110
 INFO 2026-01-07 09:48:18,850 basehttp 15364 12628 "GET /admin/shop/product/ HTTP/1.1" 200 25284
 INFO 2026-01-07 09:48:19,773 basehttp 15364 12628 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 INFO 2026-01-07 09:48:22,273 basehttp 15364 12488 "GET /admin/ HTTP/1.1" 200 31100
+INFO 2026-01-07 11:38:20,702 autoreload 2824 15224 Watching for file changes with StatReloader
+INFO 2026-01-07 11:38:37,268 basehttp 2824 7408 "GET / HTTP/1.1" 200 43044
+INFO 2026-01-07 11:39:02,344 basehttp 2824 15240 "GET /track-order/ HTTP/1.1" 200 18274
+INFO 2026-01-07 11:39:27,107 basehttp 2824 8968 "GET /admin/dashboard/ HTTP/1.1" 200 31038
+INFO 2026-01-07 11:39:27,165 basehttp 2824 8968 "GET /static/css/style.css?v=1.2 HTTP/1.1" 304 0
+INFO 2026-01-07 11:39:38,200 basehttp 2824 2536 "GET /admin/shop/product/ HTTP/1.1" 200 25284
+INFO 2026-01-07 11:39:38,528 basehttp 2824 2536 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2026-01-07 11:39:38,946 basehttp 2824 2536 "GET /favicon.ico HTTP/1.1" 404 6189
+INFO 2026-01-07 11:39:50,131 basehttp 2824 4700 "GET /admin/shop/product/add/ HTTP/1.1" 200 27795
+INFO 2026-01-07 11:39:50,407 basehttp 2824 4700 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:45:07,236 basehttp 2824 6228 "GET / HTTP/1.1" 200 43044
+INFO 2026-01-07 11:45:07,403 basehttp 2824 6228 "GET /static/logo/placeholder.png HTTP/1.1" 304 0
+INFO 2026-01-07 11:45:07,418 basehttp 2824 6228 "GET /static/js/ui-enhancements.js HTTP/1.1" 304 0
+INFO 2026-01-07 11:47:50,388 basehttp 2824 1944 "GET /admin/shop/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 8141
+INFO 2026-01-07 11:47:50,600 basehttp 2824 1944 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:48:02,876 basehttp 2824 17308 "POST /admin/shop/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 328
+INFO 2026-01-07 11:48:06,803 basehttp 2824 17308 "GET /admin/shop/brand/add/?_to_field=id&_popup=1 HTTP/1.1" 200 5227
+INFO 2026-01-07 11:48:07,060 basehttp 2824 17308 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:48:11,654 basehttp 2824 6336 "POST /admin/shop/brand/add/?_to_field=id&_popup=1 HTTP/1.1" 200 324
+INFO 2026-01-07 11:48:15,496 basehttp 2824 6336 "POST /admin/shop/product/add/ HTTP/1.1" 302 0
+INFO 2026-01-07 11:48:15,882 basehttp 2824 6336 "GET /admin/shop/product/ HTTP/1.1" 200 26543
+INFO 2026-01-07 11:48:16,196 basehttp 2824 6336 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:48:21,191 basehttp 2824 5872 "GET / HTTP/1.1" 200 46196
+INFO 2026-01-07 11:49:04,651 basehttp 2824 7276 "GET /admin/shop/product/add/ HTTP/1.1" 200 27869
+INFO 2026-01-07 11:49:04,982 basehttp 2824 7276 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:49:30,704 basehttp 2824 10404 "GET /admin/shop/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 8180
+INFO 2026-01-07 11:49:30,863 basehttp 2824 10404 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:49:38,638 basehttp 2824 8596 "POST /admin/shop/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 8578
+INFO 2026-01-07 11:49:39,152 basehttp 2824 8596 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:49:55,935 basehttp 2824 16892 "GET /admin/shop/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 8180
+INFO 2026-01-07 11:49:56,351 basehttp 2824 16892 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:50:02,899 basehttp 2824 12768 "GET /admin/shop/brand/add/?_to_field=id&_popup=1 HTTP/1.1" 200 5227
+INFO 2026-01-07 11:50:03,343 basehttp 2824 12768 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:50:08,071 basehttp 2824 12768 "POST /admin/shop/brand/add/?_to_field=id&_popup=1 HTTP/1.1" 200 325
+INFO 2026-01-07 11:50:25,894 basehttp 2824 9396 "POST /admin/shop/product/add/ HTTP/1.1" 302 0
+INFO 2026-01-07 11:50:26,286 basehttp 2824 9396 "GET /admin/shop/product/ HTTP/1.1" 200 27537
+INFO 2026-01-07 11:50:26,575 basehttp 2824 9396 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:50:32,634 basehttp 2824 14480 "GET / HTTP/1.1" 200 48915
+INFO 2026-01-07 11:50:45,195 basehttp 2824 404 "GET /?search=&price_max=5000 HTTP/1.1" 200 48915
+INFO 2026-01-07 11:51:21,390 basehttp 2824 10036 "GET /admin/shop/product/add/ HTTP/1.1" 200 27905
+INFO 2026-01-07 11:51:21,673 basehttp 2824 10036 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:51:41,496 basehttp 2824 1404 "GET /admin/shop/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 8180
+INFO 2026-01-07 11:51:41,669 basehttp 2824 1404 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:51:50,696 basehttp 2824 13640 "POST /admin/shop/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 330
+INFO 2026-01-07 11:51:53,604 basehttp 2824 16616 "GET /admin/shop/brand/add/?_to_field=id&_popup=1 HTTP/1.1" 200 5227
+INFO 2026-01-07 11:51:53,845 basehttp 2824 16616 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:52:00,499 basehttp 2824 3416 "GET /admin/shop/brand/add/?_to_field=id&_popup=1 HTTP/1.1" 200 5227
+INFO 2026-01-07 11:52:01,022 basehttp 2824 3416 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:52:05,450 basehttp 2824 13344 "POST /admin/shop/brand/add/?_to_field=id&_popup=1 HTTP/1.1" 200 326
+INFO 2026-01-07 11:52:10,002 basehttp 2824 7868 "POST /admin/shop/product/add/ HTTP/1.1" 302 0
+INFO 2026-01-07 11:52:10,246 basehttp 2824 7868 "GET /admin/shop/product/ HTTP/1.1" 200 28609
+INFO 2026-01-07 11:52:10,461 basehttp 2824 7868 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 11:52:26,038 basehttp 2824 7692 "GET /?search=&price_max=5000 HTTP/1.1" 200 50973
+INFO 2026-01-07 11:52:47,246 basehttp 2824 16388 "GET /?page=2&search=&price_max=5000 HTTP/1.1" 200 30796
+INFO 2026-01-07 11:54:28,123 basehttp 2824 16668 "GET /?search=&price_max=1100 HTTP/1.1" 200 50973
+INFO 2026-01-07 11:54:37,995 basehttp 2824 14084 "GET /?search=&price_max=500 HTTP/1.1" 200 50968
+INFO 2026-01-07 11:54:50,081 basehttp 2824 5048 "GET /?search=&price_max=250 HTTP/1.1" 200 50968
+INFO 2026-01-07 11:55:14,602 basehttp 2824 12776 "GET /?search=&price_max=250 HTTP/1.1" 200 50968
+INFO 2026-01-07 11:55:46,807 basehttp 2824 16256 "GET / HTTP/1.1" 200 50927
+INFO 2026-01-07 11:55:58,517 basehttp 2824 11372 "GET /?search=&category=8&price_max=5000 HTTP/1.1" 200 30323
+ERROR 2026-01-07 11:56:31,843 log 2824 14720 Internal Server Error: /product/luna-weighted-silk-sleep-mask/
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 112, in product_detail
+    return render(request, 'shop/product_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2026-01-07 11:56:31,890 basehttp 2824 14720 "GET /product/luna-weighted-silk-sleep-mask/ HTTP/1.1" 500 182128
+INFO 2026-01-07 11:58:44,588 basehttp 2824 1408 "GET / HTTP/1.1" 200 50895
+ERROR 2026-01-07 11:58:59,771 log 2824 3100 Internal Server Error: /product/nomad-20000mah-solar-power-bank/
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 112, in product_detail
+    return render(request, 'shop/product_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2026-01-07 11:58:59,781 basehttp 2824 3100 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 500 183628
+INFO 2026-01-07 12:04:02,895 basehttp 2824 5728 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 21886
+INFO 2026-01-07 12:04:21,110 basehttp 2824 14784 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 19996
+INFO 2026-01-07 12:04:29,892 basehttp 2824 16524 "GET /product/soundscape-pro-active-noise-canceling-headphones/ HTTP/1.1" 200 22285
+INFO 2026-01-07 12:04:29,978 basehttp 2824 16524 "GET /media/products/picture-speaker-that-has-picture-speaker-it_1230457-49114.avif HTTP/1.1" 304 0
+INFO 2026-01-07 12:04:42,228 basehttp 2824 2768 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 21886
+INFO 2026-01-07 12:05:08,659 basehttp 2824 13472 "GET /?search=&price_max=5000&available_only=on HTTP/1.1" 200 45078
+INFO 2026-01-07 12:05:19,039 basehttp 2824 14124 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 21886
+INFO 2026-01-07 12:07:07,142 basehttp 2824 8244 "GET /admin/dashboard/ HTTP/1.1" 200 32534
+INFO 2026-01-07 12:07:43,906 basehttp 2824 13800 "GET /admin/shop/product/ HTTP/1.1" 200 28380
+INFO 2026-01-07 12:07:44,268 basehttp 2824 13800 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:07:47,966 basehttp 2824 13800 "GET /admin/shop/product/9/change/ HTTP/1.1" 200 28702
+INFO 2026-01-07 12:07:48,995 basehttp 2824 13800 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:09:06,599 basehttp 2824 13680 "POST /admin/shop/product/9/change/ HTTP/1.1" 302 0
+INFO 2026-01-07 12:09:09,610 basehttp 2824 13680 "GET /admin/shop/product/ HTTP/1.1" 200 28606
+INFO 2026-01-07 12:09:12,462 basehttp 2824 13680 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:09:33,143 basehttp 2824 10004 "GET /admin/shop/product/ HTTP/1.1" 200 28380
+INFO 2026-01-07 12:09:42,596 basehttp 2824 8444 "GET / HTTP/1.1" 200 50847
+INFO 2026-01-07 12:09:43,279 basehttp 2824 6104 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 200 472488
+INFO 2026-01-07 12:09:52,462 basehttp 2824 15004 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 22102
+INFO 2026-01-07 12:09:52,528 basehttp 2824 15004 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:09:52,563 basehttp 2824 13640 "GET /media/products/images.jfif HTTP/1.1" 200 9877
+INFO 2026-01-07 12:09:52,715 basehttp 2824 15004 "GET /media/products/715OZEycQLL-785x1024.jpg HTTP/1.1" 200 105402
+INFO 2026-01-07 12:10:46,756 basehttp 2824 14596 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 22102
+INFO 2026-01-07 12:10:46,811 basehttp 2824 5416 "GET /media/products/715OZEycQLL-785x1024.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:10:46,813 basehttp 2824 14596 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:10:46,827 basehttp 2824 14596 "GET /media/products/images.jfif HTTP/1.1" 304 0
+INFO 2026-01-07 12:10:59,741 basehttp 2824 12460 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 19996
+INFO 2026-01-07 12:11:19,650 basehttp 2824 10932 "GET /admin/dashboard/ HTTP/1.1" 200 32534
+INFO 2026-01-07 12:11:22,550 basehttp 2824 10932 "GET /admin/shop/product/10/change/ HTTP/1.1" 200 28603
+INFO 2026-01-07 12:11:23,149 basehttp 2824 10932 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:11:42,467 basehttp 2824 14812 "POST /admin/shop/product/10/change/ HTTP/1.1" 302 0
+INFO 2026-01-07 12:11:42,751 basehttp 2824 14812 "GET /admin/shop/product/ HTTP/1.1" 200 28620
+INFO 2026-01-07 12:11:43,018 basehttp 2824 14812 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:12:43,289 basehttp 2824 2108 "POST /admin/shop/product/ HTTP/1.1" 302 0
+INFO 2026-01-07 12:12:43,580 basehttp 2824 2108 "GET /admin/shop/product/ HTTP/1.1" 200 28541
+INFO 2026-01-07 12:12:43,788 basehttp 2824 2108 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:13:02,517 basehttp 2824 5872 "GET / HTTP/1.1" 200 50841
+INFO 2026-01-07 12:13:02,633 basehttp 2824 5872 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:13:32,377 basehttp 2824 10832 "GET /?page=2 HTTP/1.1" 200 30718
+INFO 2026-01-07 12:13:35,727 basehttp 2824 1488 "GET /?page=1 HTTP/1.1" 200 50841
+INFO 2026-01-07 12:13:35,827 basehttp 2824 1488 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:15:52,498 autoreload 2824 15224 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\models.py changed, reloading.
+INFO 2026-01-07 12:15:58,055 autoreload 15880 16556 Watching for file changes with StatReloader
+INFO 2026-01-07 12:16:20,040 basehttp 15880 5320 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 22102
+INFO 2026-01-07 12:16:20,196 basehttp 15880 15424 "GET /media/products/715OZEycQLL-785x1024.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:16:20,197 basehttp 15880 5320 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:16:20,243 basehttp 15880 5320 "GET /media/products/images.jfif HTTP/1.1" 304 0
+INFO 2026-01-07 12:25:01,740 basehttp 15880 16740 "GET /product/soundscape-pro-active-noise-canceling-headphones/ HTTP/1.1" 200 22234
+INFO 2026-01-07 12:25:01,820 basehttp 15880 16740 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:25:45,984 basehttp 15880 16916 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 21037
+INFO 2026-01-07 12:27:16,872 basehttp 15880 5208 "GET /admin/shop/product/ HTTP/1.1" 200 28398
+INFO 2026-01-07 12:27:29,613 basehttp 15880 5276 "GET /admin/dashboard/ HTTP/1.1" 200 31038
+INFO 2026-01-07 12:27:43,928 basehttp 15880 13992 "GET /admin/shop/product/ HTTP/1.1" 200 28398
+INFO 2026-01-07 12:27:44,302 basehttp 15880 13992 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:27:47,657 basehttp 15880 7884 "GET /admin/shop/product/10/change/ HTTP/1.1" 200 28612
+INFO 2026-01-07 12:27:47,862 basehttp 15880 7884 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:28:24,983 basehttp 15880 2052 "POST /admin/shop/product/10/change/ HTTP/1.1" 302 0
+INFO 2026-01-07 12:28:25,366 basehttp 15880 2052 "GET /admin/shop/product/ HTTP/1.1" 200 28629
+INFO 2026-01-07 12:28:25,571 basehttp 15880 2052 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 12:28:36,725 basehttp 15880 12548 "GET / HTTP/1.1" 200 50855
+INFO 2026-01-07 12:28:36,814 basehttp 15880 16604 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:28:36,977 basehttp 15880 12548 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 200 28185
+INFO 2026-01-07 12:28:57,034 basehttp 15880 4708 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 21406
+INFO 2026-01-07 12:28:57,118 basehttp 15880 15796 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:28:57,139 basehttp 15880 4708 "GET /media/products/41F2RIahyuL.jpg HTTP/1.1" 200 30210
+INFO 2026-01-07 12:28:57,182 basehttp 15880 15796 "GET /media/products/Simple-Hand-Painted-White-Round-Flower-Pot-Set-6.webp HTTP/1.1" 200 19450
+INFO 2026-01-07 12:29:39,003 basehttp 15880 9620 "GET / HTTP/1.1" 200 50855
+INFO 2026-01-07 12:29:39,140 basehttp 15880 9620 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:32:34,831 basehttp 15880 11336 "GET / HTTP/1.1" 200 51247
+INFO 2026-01-07 12:32:34,987 basehttp 15880 11336 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:32:34,998 basehttp 15880 11336 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:34:23,212 basehttp 15880 16956 "GET /?search=&price_max=200 HTTP/1.1" 200 51288
+INFO 2026-01-07 12:34:23,323 basehttp 15880 16956 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 12:41:15,704 basehttp 15880 13900 "GET /product/luna-weighted-silk-sleep-mask/ HTTP/1.1" 200 20531
+INFO 2026-01-07 12:41:36,440 basehttp 15880 1184 "GET /product/luna-weighted-silk-sleep-mask/ HTTP/1.1" 200 20531
+ERROR 2026-01-07 12:47:00,067 log 15880 13348 Internal Server Error: /product/luna-weighted-silk-sleep-mask/
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 112, in product_detail
+    return render(request, 'shop/product_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2026-01-07 12:47:00,092 basehttp 15880 13348 "GET /product/luna-weighted-silk-sleep-mask/ HTTP/1.1" 500 182196
+INFO 2026-01-07 12:47:30,976 basehttp 15880 4784 "GET /cart/ HTTP/1.1" 200 17477
+INFO 2026-01-07 13:03:37,485 basehttp 15880 7984 "GET /admin/shop/product/ HTTP/1.1" 200 28398
+INFO 2026-01-07 14:16:21,564 autoreload 13216 13648 Watching for file changes with StatReloader
+INFO 2026-01-07 14:16:32,292 basehttp 13216 5360 "GET / HTTP/1.1" 200 51247
+INFO 2026-01-07 14:16:32,716 basehttp 13216 5360 "GET /static/css/style.css?v=1.2 HTTP/1.1" 304 0
+INFO 2026-01-07 14:16:32,749 basehttp 13216 5360 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 14:16:32,768 basehttp 13216 5360 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 14:16:32,788 basehttp 13216 5360 "GET /static/logo/placeholder.png HTTP/1.1" 304 0
+INFO 2026-01-07 14:16:32,810 basehttp 13216 5360 "GET /static/js/ui-enhancements.js HTTP/1.1" 304 0
+INFO 2026-01-07 14:16:32,820 basehttp 13216 5360 "GET /media/products/picture-speaker-that-has-picture-speaker-it_1230457-49114_1.avif HTTP/1.1" 304 0
+INFO 2026-01-07 14:16:44,900 basehttp 13216 1260 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 21372
+INFO 2026-01-07 14:16:44,999 basehttp 13216 5476 "GET /media/products/Simple-Hand-Painted-White-Round-Flower-Pot-Set-6.webp HTTP/1.1" 304 0
+INFO 2026-01-07 14:16:44,999 basehttp 13216 1260 "GET /media/products/41F2RIahyuL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 14:25:37,661 basehttp 13216 15752 "GET / HTTP/1.1" 200 51261
+INFO 2026-01-07 14:25:54,043 basehttp 13216 4028 "GET /?search=&price_max=500 HTTP/1.1" 200 51302
+INFO 2026-01-07 14:26:03,362 basehttp 13216 15152 "GET /?search=&price_max=350 HTTP/1.1" 200 51302
+ERROR 2026-01-07 14:26:17,075 log 13216 11048 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 53, in product_list
+    products = products.filter(brand=brand)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1588, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1415, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\related_lookups.py", line 114, in get_prep_lookup
+    return super().get_prep_lookup()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\lookups.py", line 397, in get_prep_lookup
+    raise ValueError(
+ValueError: The QuerySet value for an exact lookup must be limited to one result using slicing.
+ERROR 2026-01-07 14:26:17,091 basehttp 13216 11048 "GET /?search=&brand=4&price_max=350 HTTP/1.1" 500 125758
+WARNING 2026-01-07 14:26:17,497 basehttp 13216 11048 "GET /favicon.ico HTTP/1.1" 404 6189
+INFO 2026-01-07 14:26:24,112 basehttp 13216 13064 "GET / HTTP/1.1" 200 51261
+ERROR 2026-01-07 14:26:33,172 log 13216 15680 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 53, in product_list
+    products = products.filter(brand=brand)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1588, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\query.py", line 1415, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\lookups.py", line 38, in __init__
+    self.rhs = self.get_prep_lookup()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\related_lookups.py", line 114, in get_prep_lookup
+    return super().get_prep_lookup()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\lookups.py", line 397, in get_prep_lookup
+    raise ValueError(
+ValueError: The QuerySet value for an exact lookup must be limited to one result using slicing.
+ERROR 2026-01-07 14:26:33,175 basehttp 13216 15680 "GET /?search=&brand=3&price_max=5000 HTTP/1.1" 500 125771
+INFO 2026-01-07 14:27:48,755 autoreload 13216 13648 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py changed, reloading.
+INFO 2026-01-07 14:27:55,818 autoreload 11600 9544 Watching for file changes with StatReloader
+INFO 2026-01-07 14:28:01,315 autoreload 11600 9544 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\forms.py changed, reloading.
+INFO 2026-01-07 14:28:05,054 autoreload 7148 584 Watching for file changes with StatReloader
+INFO 2026-01-07 14:29:12,902 basehttp 7148 15548 "GET /?search=&brand=3&price_max=5000 HTTP/1.1" 200 30555
+INFO 2026-01-07 14:29:23,696 basehttp 7148 2924 "GET /?search=&brand=4&price_max=5000 HTTP/1.1" 200 30503
+INFO 2026-01-07 14:29:32,437 basehttp 7148 9888 "GET /?search=&brand=6&price_max=5000 HTTP/1.1" 200 30922
+INFO 2026-01-07 14:29:48,774 basehttp 7148 10524 "GET / HTTP/1.1" 200 51433
+INFO 2026-01-07 14:29:48,839 basehttp 7148 10524 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 14:29:48,840 basehttp 7148 14008 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 14:30:01,808 basehttp 7148 6992 "GET /?search=philips&price_max=5000 HTTP/1.1" 200 30518
+INFO 2026-01-07 14:31:09,151 basehttp 7148 11972 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 22143
+INFO 2026-01-07 14:31:09,212 basehttp 7148 11972 "GET /media/products/715OZEycQLL-785x1024.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 14:31:09,212 basehttp 7148 9544 "GET /media/products/images.jfif HTTP/1.1" 304 0
+INFO 2026-01-07 14:31:19,023 basehttp 7148 6336 "POST /cart/add/9/ HTTP/1.1" 302 0
+INFO 2026-01-07 14:31:19,228 basehttp 7148 6336 "GET /cart/ HTTP/1.1" 200 20877
+INFO 2026-01-07 14:33:21,992 basehttp 7148 8876 "POST /cart/add/9/ HTTP/1.1" 302 0
+INFO 2026-01-07 14:33:22,122 basehttp 7148 8876 "GET /cart/ HTTP/1.1" 200 20877
+INFO 2026-01-07 14:33:25,930 logging 7148 8876 Starting checkout
+INFO 2026-01-07 14:33:26,010 logging 7148 8876 Completed checkout successfully
+INFO 2026-01-07 14:33:26,012 basehttp 7148 8876 "GET /checkout/ HTTP/1.1" 200 24425
+INFO 2026-01-07 14:48:54,242 logging 7148 2156 Starting checkout
+INFO 2026-01-07 14:48:54,477 logging 7148 2156 Completed checkout successfully
+INFO 2026-01-07 14:48:54,481 basehttp 7148 2156 "GET /checkout/ HTTP/1.1" 200 24435
+INFO 2026-01-07 14:49:27,462 logging 7148 16448 Starting checkout
+INFO 2026-01-07 14:49:27,740 signals 7148 16448 Triggering notification for Order #5. Created: True, Status changed: False
+INFO 2026-01-07 14:49:27,743 signals 7148 16448 Order #5 is new. Confirmation email should be handled by views/utils.
+INFO 2026-01-07 14:49:27,790 signals 7148 16448 Triggering notification for Order #5. Created: False, Status changed: True
+INFO 2026-01-07 14:49:27,792 signals 7148 16448 Sending status update email for Order #5 to krishnananbu99@gmail.com. New status: confirmed
+INFO 2026-01-07 14:49:32,764 signals 7148 16448 Status update email sent successfully for Order #5
+INFO 2026-01-07 14:49:32,793 order_processing 7148 16448 Order 5 validated and processed successfully
+INFO 2026-01-07 14:49:32,815 logging 7148 16448 Completed checkout successfully
+INFO 2026-01-07 14:49:32,824 basehttp 7148 16448 "POST /checkout/ HTTP/1.1" 302 0
+INFO 2026-01-07 14:49:33,142 basehttp 7148 16448 "GET /order/confirmation/5/ HTTP/1.1" 200 19597
+INFO 2026-01-07 14:50:20,189 basehttp 7148 4452 "GET /track-order/ HTTP/1.1" 200 18667
+INFO 2026-01-07 14:51:33,367 basehttp 7148 5520 "POST /track-order/ HTTP/1.1" 200 26700
+INFO 2026-01-07 14:55:50,185 basehttp 7148 5968 "POST /track-order/ HTTP/1.1" 200 26700
+INFO 2026-01-07 14:56:26,492 basehttp 7148 16572 "POST /track-order/ HTTP/1.1" 200 26700
+INFO 2026-01-07 14:56:33,494 basehttp 7148 16848 "POST /track-order/ HTTP/1.1" 200 26700
+INFO 2026-01-07 14:58:58,276 basehttp 7148 11528 "POST /track-order/ HTTP/1.1" 200 26842
+INFO 2026-01-07 15:03:42,893 autoreload 7148 584 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py changed, reloading.
+INFO 2026-01-07 15:03:47,870 autoreload 16568 9608 Watching for file changes with StatReloader
+INFO 2026-01-07 15:05:51,598 basehttp 16568 1096 "POST /track-order/ HTTP/1.1" 200 26862
+INFO 2026-01-07 15:23:41,983 basehttp 16568 12520 "GET /admin/dashboard/ HTTP/1.1" 200 31672
+INFO 2026-01-07 15:23:48,787 basehttp 16568 8332 "GET /admin/shop/order/ HTTP/1.1" 200 27561
+INFO 2026-01-07 15:23:49,278 basehttp 16568 8332 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 15:24:06,007 signals 16568 6000 Triggering notification for Order #5. Created: False, Status changed: True
+INFO 2026-01-07 15:24:06,013 signals 16568 6000 Sending status update email for Order #5 to krishnananbu99@gmail.com. New status: shipped
+INFO 2026-01-07 15:24:10,703 signals 16568 6000 Status update email sent successfully for Order #5
+INFO 2026-01-07 15:24:10,750 basehttp 16568 6000 "POST /admin/shop/order/ HTTP/1.1" 302 0
+INFO 2026-01-07 15:24:10,993 basehttp 16568 6000 "GET /admin/shop/order/ HTTP/1.1" 200 27700
+INFO 2026-01-07 15:24:11,241 basehttp 16568 6000 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 15:24:24,797 basehttp 16568 8136 "GET / HTTP/1.1" 200 51433
+INFO 2026-01-07 15:24:24,945 basehttp 16568 8136 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 15:24:24,981 basehttp 16568 8136 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 15:24:32,057 basehttp 16568 13372 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 22143
+INFO 2026-01-07 15:24:32,123 basehttp 16568 13372 "GET /media/products/images.jfif HTTP/1.1" 304 0
+INFO 2026-01-07 15:24:32,125 basehttp 16568 8380 "GET /media/products/715OZEycQLL-785x1024.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 15:24:38,058 basehttp 16568 3840 "GET /orders/ HTTP/1.1" 200 16984
+INFO 2026-01-07 15:25:12,045 basehttp 16568 15056 "GET /order/5/ HTTP/1.1" 200 21981
+INFO 2026-01-07 15:26:09,403 basehttp 16568 4352 "GET /track-order/?order_number=UKMW8VDWCK HTTP/1.1" 200 26930
+INFO 2026-01-07 15:26:57,770 basehttp 16568 3500 "GET /admin/dashboard/ HTTP/1.1" 200 31672
+INFO 2026-01-07 15:27:02,353 basehttp 16568 16040 "GET /admin/shop/order/ HTTP/1.1" 200 27561
+INFO 2026-01-07 15:27:02,699 basehttp 16568 16040 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 15:27:14,354 signals 16568 15476 Triggering notification for Order #5. Created: False, Status changed: True
+INFO 2026-01-07 15:27:14,356 signals 16568 15476 Sending status update email for Order #5 to krishnananbu99@gmail.com. New status: delivered
+INFO 2026-01-07 15:27:18,020 signals 16568 15476 Status update email sent successfully for Order #5
+INFO 2026-01-07 15:27:20,906 basehttp 16568 15476 "POST /admin/shop/order/ HTTP/1.1" 302 0
+INFO 2026-01-07 15:27:21,211 basehttp 16568 15476 "GET /admin/shop/order/ HTTP/1.1" 200 27700
+INFO 2026-01-07 15:27:21,501 basehttp 16568 15476 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 15:27:34,230 basehttp 16568 12060 "GET / HTTP/1.1" 200 51433
+INFO 2026-01-07 15:28:20,918 basehttp 16568 5640 "GET /orders/ HTTP/1.1" 200 16986
+INFO 2026-01-07 15:28:32,741 basehttp 16568 10520 "GET /order/5/ HTTP/1.1" 200 21983
+INFO 2026-01-07 15:28:38,099 basehttp 16568 1836 "GET /track-order/?order_number=UKMW8VDWCK HTTP/1.1" 200 27023
+INFO 2026-01-07 15:29:46,636 basehttp 16568 17068 "GET /admin/dashboard/ HTTP/1.1" 200 31672
+INFO 2026-01-07 15:30:05,962 basehttp 16568 9080 "GET /?page=2 HTTP/1.1" 200 30936
+INFO 2026-01-07 15:30:12,693 basehttp 16568 7476 "GET /product/soundscape-pro-active-noise-canceling-headphones/ HTTP/1.1" 200 22275
+INFO 2026-01-07 15:30:19,468 basehttp 16568 16132 "POST /cart/add/2/ HTTP/1.1" 302 0
+INFO 2026-01-07 15:30:19,679 basehttp 16568 16132 "GET /cart/ HTTP/1.1" 200 20979
+INFO 2026-01-07 15:31:08,278 basehttp 16568 12108 "GET /?search=&price_max=5000 HTTP/1.1" 200 51479
+INFO 2026-01-07 15:31:14,348 basehttp 16568 5012 "GET /?search=&price_max=5000 HTTP/1.1" 200 51479
+INFO 2026-01-07 15:31:22,059 basehttp 16568 11352 "GET /?search=&price_max=5000 HTTP/1.1" 200 51479
+INFO 2026-01-07 15:31:25,927 basehttp 16568 15608 "GET /?search=&price_max=5000 HTTP/1.1" 200 51479
+INFO 2026-01-07 15:36:54,991 basehttp 16568 10080 - Broken pipe from ('127.0.0.1', 51895)
+INFO 2026-01-07 15:36:54,992 basehttp 16568 14972 - Broken pipe from ('127.0.0.1', 51887)
+INFO 2026-01-07 15:36:55,018 basehttp 16568 16484 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 22143
+ERROR 2026-01-07 15:37:26,210 log 16568 13532 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: "request.GET.sort_by=='price'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 99, in product_list
+    return render(request, 'shop/product_list.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 894, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 897, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '=='price'' from 'request.GET.sort_by=='price''
+ERROR 2026-01-07 15:37:26,241 basehttp 16568 13532 "GET /?search=&price_max=5000 HTTP/1.1" 500 307255
+ERROR 2026-01-07 15:39:31,726 log 16568 8920 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: "request.GET.sort_by=='price'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 99, in product_list
+    return render(request, 'shop/product_list.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 894, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\defaulttags.py", line 897, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '=='price'' from 'request.GET.sort_by=='price''
+ERROR 2026-01-07 15:39:31,732 basehttp 16568 8920 "GET /?search=&price_max=5000 HTTP/1.1" 500 307392
+INFO 2026-01-07 15:44:27,550 autoreload 16568 9608 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\forms.py changed, reloading.
+INFO 2026-01-07 15:44:33,096 autoreload 11748 1372 Watching for file changes with StatReloader
+INFO 2026-01-07 15:45:28,952 basehttp 11748 6560 "GET /?search=&price_max=5000 HTTP/1.1" 200 51580
+INFO 2026-01-07 15:45:29,044 basehttp 11748 6560 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 15:45:29,078 basehttp 11748 6560 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 15:45:47,058 basehttp 11748 14448 "GET /?search=&price_max=5000&sort_by=-price HTTP/1.1" 200 51234
+INFO 2026-01-07 15:45:57,419 basehttp 11748 10844 "GET /?search=&price_max=5000&sort_by=name HTTP/1.1" 200 50811
+INFO 2026-01-07 15:46:24,434 basehttp 11748 15464 "GET /?search=&price_max=5000&sort_by=created_at HTTP/1.1" 200 51183
+INFO 2026-01-07 15:46:29,942 basehttp 11748 12628 "GET /?search=&price_max=5000&sort_by=-created_at HTTP/1.1" 200 51620
+INFO 2026-01-07 15:46:54,558 basehttp 11748 3668 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 21447
+INFO 2026-01-07 15:46:54,610 basehttp 11748 3668 "GET /media/products/41F2RIahyuL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 15:46:54,628 basehttp 11748 3668 "GET /media/products/Simple-Hand-Painted-White-Round-Flower-Pot-Set-6.webp HTTP/1.1" 304 0
+INFO 2026-01-07 15:48:34,135 basehttp 11748 10144 "GET /?search=&price_max=5000&sort_by=-created_at HTTP/1.1" 200 51638
+INFO 2026-01-07 15:52:47,795 basehttp 11748 14872 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 21447
+INFO 2026-01-07 15:55:36,614 basehttp 11748 13576 "GET /cart/ HTTP/1.1" 200 20979
+INFO 2026-01-07 15:55:47,471 basehttp 11748 3364 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 21447
+INFO 2026-01-07 15:55:51,525 basehttp 11748 3364 "POST /cart/add/10/ HTTP/1.1" 302 0
+INFO 2026-01-07 15:55:51,683 basehttp 11748 3364 "GET /cart/ HTTP/1.1" 200 23500
+INFO 2026-01-07 15:56:07,472 basehttp 11748 11072 "POST /cart/add/2/ HTTP/1.1" 302 0
+INFO 2026-01-07 15:56:07,774 basehttp 11748 11072 "GET /cart/ HTTP/1.1" 200 22597
+INFO 2026-01-07 15:59:21,333 basehttp 11748 5116 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 21447
+INFO 2026-01-07 16:01:11,400 basehttp 11748 10564 "GET /?search=&price_max=5000&sort_by=created_at HTTP/1.1" 200 51193
+INFO 2026-01-07 16:01:48,867 basehttp 11748 15940 "GET /track-order/ HTTP/1.1" 200 18304
+INFO 2026-01-07 16:01:59,101 basehttp 11748 9844 "GET /orders/ HTTP/1.1" 200 16997
+INFO 2026-01-07 16:02:02,722 basehttp 11748 3112 "GET /track-order/?order_number=UKMW8VDWCK HTTP/1.1" 200 27033
+INFO 2026-01-07 16:06:08,323 autoreload 11748 1372 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py changed, reloading.
+INFO 2026-01-07 16:06:15,046 autoreload 2080 13864 Watching for file changes with StatReloader
+INFO 2026-01-07 16:09:51,107 autoreload 2080 13864 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\models.py changed, reloading.
+INFO 2026-01-07 16:09:57,277 autoreload 12616 13768 Watching for file changes with StatReloader
+INFO 2026-01-07 16:11:14,197 basehttp 12616 12964 "GET / HTTP/1.1" 200 51544
+INFO 2026-01-07 16:11:14,858 basehttp 12616 12964 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 16:11:14,913 basehttp 12616 12964 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+ERROR 2026-01-07 16:11:30,501 log 12616 15104 Internal Server Error: /product/alpine-trekker-35l-waterproof-backpack/
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 116, in product_detail
+    return render(request, 'shop/product_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2026-01-07 16:11:30,512 basehttp 12616 15104 "GET /product/alpine-trekker-35l-waterproof-backpack/ HTTP/1.1" 500 183067
+ERROR 2026-01-07 16:11:35,495 log 12616 14008 Internal Server Error: /product/alpine-gear/
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 116, in product_detail
+    return render(request, 'shop/product_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2026-01-07 16:11:35,500 basehttp 12616 14008 "GET /product/alpine-gear/ HTTP/1.1" 500 182179
+ERROR 2026-01-07 16:11:40,544 log 12616 10040 Internal Server Error: /product/alpine-gear/
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 116, in product_detail
+    return render(request, 'shop/product_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2026-01-07 16:11:40,548 basehttp 12616 10040 "GET /product/alpine-gear/ HTTP/1.1" 500 182179
+INFO 2026-01-07 16:11:46,148 basehttp 12616 12064 "GET /product/soundscape-pro-active-noise-canceling-headphones/ HTTP/1.1" 200 22275
+INFO 2026-01-07 16:11:46,353 basehttp 12616 12064 "GET /media/products/picture-speaker-that-has-picture-speaker-it_1230457-49114.avif HTTP/1.1" 304 0
+ERROR 2026-01-07 16:11:51,037 log 12616 10600 Internal Server Error: /product/alpine-gear/
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\views.py", line 116, in product_detail
+    return render(request, 'shop/product_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+ERROR 2026-01-07 16:11:51,046 basehttp 12616 10600 "GET /product/alpine-gear/ HTTP/1.1" 500 182179
+INFO 2026-01-07 16:16:19,038 basehttp 12616 8572 "GET /product/alpine-gear/ HTTP/1.1" 200 20999
+INFO 2026-01-07 16:16:33,587 basehttp 12616 15080 "GET /product/alpine-trekker-35l-waterproof-backpack/ HTTP/1.1" 200 20069
+INFO 2026-01-07 16:17:22,774 basehttp 12616 9868 "GET /admin/dashboard/ HTTP/1.1" 200 31672
+INFO 2026-01-07 16:18:30,408 basehttp 12616 13796 "GET /product/terra-hand-painted-ceramic-plant-pot/ HTTP/1.1" 200 21481
+INFO 2026-01-07 16:18:30,499 basehttp 12616 13796 "GET /media/products/Simple-Hand-Painted-White-Round-Flower-Pot-Set-6.webp HTTP/1.1" 304 0
+INFO 2026-01-07 16:18:30,500 basehttp 12616 17192 "GET /media/products/41F2RIahyuL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 16:18:34,041 basehttp 12616 16764 "POST /cart/add/10/ HTTP/1.1" 302 0
+INFO 2026-01-07 16:18:34,285 basehttp 12616 16764 "GET /cart/ HTTP/1.1" 200 22597
+INFO 2026-01-07 16:18:43,684 basehttp 12616 9476 "GET /cart/remove/2/ HTTP/1.1" 302 0
+INFO 2026-01-07 16:18:43,928 basehttp 12616 9476 "GET /cart/ HTTP/1.1" 200 20446
+INFO 2026-01-07 16:18:46,518 logging 12616 9476 Starting checkout
+INFO 2026-01-07 16:18:46,586 logging 12616 9476 Completed checkout successfully
+INFO 2026-01-07 16:18:46,589 basehttp 12616 9476 "GET /checkout/ HTTP/1.1" 200 24450
+INFO 2026-01-07 16:18:58,193 logging 12616 232 Starting checkout
+INFO 2026-01-07 16:18:58,418 signals 12616 232 Triggering notification for Order #6. Created: True, Status changed: False
+INFO 2026-01-07 16:18:58,422 signals 12616 232 Order #6 is new. Confirmation email should be handled by views/utils.
+INFO 2026-01-07 16:18:58,452 signals 12616 232 Triggering notification for Order #6. Created: False, Status changed: True
+INFO 2026-01-07 16:18:58,454 signals 12616 232 Sending status update email for Order #6 to krishnananbu99@gmail.com. New status: confirmed
+INFO 2026-01-07 16:19:03,252 signals 12616 232 Status update email sent successfully for Order #6
+INFO 2026-01-07 16:19:03,271 order_processing 12616 232 Order 6 validated and processed successfully
+INFO 2026-01-07 16:19:03,289 logging 12616 232 Completed checkout successfully
+INFO 2026-01-07 16:19:03,297 basehttp 12616 232 "POST /checkout/ HTTP/1.1" 302 0
+INFO 2026-01-07 16:19:03,669 basehttp 12616 232 "GET /order/confirmation/6/ HTTP/1.1" 200 19609
+INFO 2026-01-07 16:20:17,877 basehttp 12616 7940 "GET /track-order/?order_number=X1ZOJBPEMS HTTP/1.1" 200 26876
+INFO 2026-01-07 16:30:12,881 basehttp 12616 13064 "GET /order/confirmation/6/ HTTP/1.1" 200 19609
+INFO 2026-01-07 16:30:19,166 basehttp 12616 13064 "GET /order/confirmation/6/ HTTP/1.1" 200 19609
+INFO 2026-01-07 16:36:41,061 basehttp 12616 4600 "GET /order/confirmation/6/ HTTP/1.1" 200 19605
+INFO 2026-01-07 21:07:28,621 autoreload 12616 13768 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\accounts\signals.py changed, reloading.
+INFO 2026-01-07 21:07:37,869 autoreload 16360 16624 Watching for file changes with StatReloader
+INFO 2026-01-07 21:09:31,145 basehttp 16360 9956 "GET / HTTP/1.1" 200 51547
+INFO 2026-01-07 21:09:32,136 basehttp 16360 16740 "GET /static/css/style.css?v=1.2 HTTP/1.1" 304 0
+INFO 2026-01-07 21:09:32,532 basehttp 16360 9928 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 21:09:32,760 basehttp 16360 16740 "GET /static/logo/placeholder.png HTTP/1.1" 304 0
+INFO 2026-01-07 21:09:32,842 basehttp 16360 9928 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 21:09:32,909 basehttp 16360 4580 "GET /media/products/picture-speaker-that-has-picture-speaker-it_1230457-49114_1.avif HTTP/1.1" 304 0
+INFO 2026-01-07 21:09:33,029 basehttp 16360 17664 "GET /static/js/ui-enhancements.js HTTP/1.1" 304 0
+INFO 2026-01-07 21:09:33,166 basehttp 16360 9956 "GET /static/logo/logo.jpg HTTP/1.1" 200 259266
+INFO 2026-01-07 21:13:04,907 autoreload 16360 16624 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\accounts\signals.py changed, reloading.
+INFO 2026-01-07 21:13:09,830 autoreload 1288 5064 Watching for file changes with StatReloader
+INFO 2026-01-07 21:14:41,929 basehttp 1288 15376 - Broken pipe from ('127.0.0.1', 54601)
+INFO 2026-01-07 21:14:43,400 basehttp 1288 6028 "GET / HTTP/1.1" 200 51544
+INFO 2026-01-07 21:23:25,183 autoreload 1288 5064 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\signals.py changed, reloading.
+INFO 2026-01-07 21:23:31,398 autoreload 5484 18212 Watching for file changes with StatReloader
+INFO 2026-01-07 21:23:56,696 autoreload 5484 18212 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\signals.py changed, reloading.
+INFO 2026-01-07 21:24:01,812 autoreload 1192 5512 Watching for file changes with StatReloader
+INFO 2026-01-07 21:29:14,890 autoreload 1192 5512 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\shop\signals.py changed, reloading.
+INFO 2026-01-07 21:29:20,976 autoreload 5300 15924 Watching for file changes with StatReloader
+INFO 2026-01-07 21:41:06,345 autoreload 10640 14832 Watching for file changes with StatReloader
+INFO 2026-01-07 21:41:17,815 basehttp 10640 14424 "GET / HTTP/1.1" 200 51544
+INFO 2026-01-07 21:42:04,807 basehttp 10640 10880 "GET /admin/dashboard/ HTTP/1.1" 200 32589
+INFO 2026-01-07 21:42:10,713 basehttp 10640 18060 "GET /admin/shop/order/ HTTP/1.1" 200 29074
+INFO 2026-01-07 21:42:11,173 basehttp 10640 18060 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2026-01-07 21:42:11,658 basehttp 10640 18060 "GET /favicon.ico HTTP/1.1" 404 6189
+INFO 2026-01-07 21:42:26,072 signals 10640 11188 Triggering notification for Order #2. Created: False, Status changed: True
+INFO 2026-01-07 21:42:26,088 signals 10640 11188 Sending status update email for Order #2 to sivanarulanbu85@gmail.com. New status: delivered
+INFO 2026-01-07 21:42:26,461 signals 10640 11188 Invoice PDF attached for Order #2
+INFO 2026-01-07 21:42:34,522 signals 10640 11188 Status update email sent successfully for Order #2
+INFO 2026-01-07 21:42:34,554 basehttp 10640 11188 "POST /admin/shop/order/ HTTP/1.1" 302 0
+INFO 2026-01-07 21:42:34,886 basehttp 10640 11188 "GET /admin/shop/order/ HTTP/1.1" 200 29213
+INFO 2026-01-07 21:42:35,272 basehttp 10640 7148 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 21:43:40,081 basehttp 10640 16660 "POST /admin/shop/order/ HTTP/1.1" 302 0
+INFO 2026-01-07 21:43:40,573 basehttp 10640 16660 "GET /admin/shop/order/ HTTP/1.1" 200 29074
+INFO 2026-01-07 21:43:40,823 basehttp 10640 16660 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 21:51:00,565 basehttp 10640 17164 "GET / HTTP/1.1" 200 51065
+INFO 2026-01-07 21:51:02,432 basehttp 10640 18428 "GET /static/css/style.css?v=1.2 HTTP/1.1" 200 14202
+INFO 2026-01-07 21:51:02,503 basehttp 10640 5484 "GET /static/logo/logo.png HTTP/1.1" 200 576407
+INFO 2026-01-07 21:51:02,543 basehttp 10640 17164 "GET /static/css/order.css HTTP/1.1" 200 3219
+INFO 2026-01-07 21:51:02,548 basehttp 10640 11172 "GET /media/products/811f3211-e00e-45cb-8fa6-10b9f5cee3df.__CR026816001200_PT0_SX600_V1___.jpg HTTP/1.1" 200 28185
+INFO 2026-01-07 21:51:02,628 basehttp 10640 16808 "GET /media/products/81yWTgGQkEL.jpg HTTP/1.1" 200 472488
+INFO 2026-01-07 21:51:02,701 basehttp 10640 18428 "GET /media/products/picture-speaker-that-has-picture-speaker-it_1230457-49114_1.avif HTTP/1.1" 200 27343
+INFO 2026-01-07 21:51:02,753 basehttp 10640 16240 "GET /static/logo/placeholder.png HTTP/1.1" 200 120822
+INFO 2026-01-07 21:51:02,773 basehttp 10640 17164 "GET /static/js/ui-enhancements.js HTTP/1.1" 200 2500
+INFO 2026-01-07 21:51:23,562 basehttp 10640 17024 "GET / HTTP/1.1" 200 51544
+INFO 2026-01-07 21:51:31,935 basehttp 10640 4104 "GET /product/nomad-20000mah-solar-power-bank/ HTTP/1.1" 200 22177
+INFO 2026-01-07 21:51:32,021 basehttp 10640 16884 "GET /media/products/images.jfif HTTP/1.1" 304 0
+INFO 2026-01-07 21:51:32,022 basehttp 10640 4104 "GET /media/products/715OZEycQLL-785x1024.jpg HTTP/1.1" 304 0
+INFO 2026-01-07 21:51:40,613 basehttp 10640 8468 "POST /cart/add/9/ HTTP/1.1" 302 0
+INFO 2026-01-07 21:51:41,235 basehttp 10640 11344 "GET /cart/ HTTP/1.1" 200 20376
+INFO 2026-01-07 21:51:46,868 logging 10640 3492 Starting checkout
+INFO 2026-01-07 21:51:46,986 logging 10640 3492 Completed checkout successfully
+INFO 2026-01-07 21:51:47,075 basehttp 10640 3492 "GET /checkout/ HTTP/1.1" 200 24450
+INFO 2026-01-07 21:52:05,238 logging 10640 17736 Starting checkout
+INFO 2026-01-07 21:52:05,664 signals 10640 17736 Triggering notification for Order #7. Created: True, Status changed: False
+INFO 2026-01-07 21:52:05,672 signals 10640 17736 Order #7 is new. Confirmation email should be handled by views/utils.
+INFO 2026-01-07 21:52:05,737 signals 10640 17736 Triggering notification for Order #7. Created: False, Status changed: True
+INFO 2026-01-07 21:52:05,743 signals 10640 17736 Sending status update email for Order #7 to krishnananbu99@gmail.com. New status: confirmed
+INFO 2026-01-07 21:52:12,917 signals 10640 17736 Status update email sent successfully for Order #7
+INFO 2026-01-07 21:52:12,931 order_processing 10640 17736 Order 7 validated and processed successfully
+INFO 2026-01-07 21:52:12,972 logging 10640 17736 Completed checkout successfully
+INFO 2026-01-07 21:52:12,984 basehttp 10640 17736 "POST /checkout/ HTTP/1.1" 302 0
+INFO 2026-01-07 21:52:13,446 basehttp 10640 17736 "GET /order/confirmation/7/ HTTP/1.1" 200 19604
+INFO 2026-01-07 21:53:21,806 basehttp 10640 4708 "GET /track-order/?order_number=WOOVU9NW8Q HTTP/1.1" 200 26875
+INFO 2026-01-07 21:53:29,407 basehttp 10640 224 "GET /orders/ HTTP/1.1" 200 18630
+INFO 2026-01-07 21:53:33,798 basehttp 10640 13788 "GET /admin/dashboard/ HTTP/1.1" 200 32590
+INFO 2026-01-07 21:53:36,878 basehttp 10640 1488 "GET /admin/shop/order/ HTTP/1.1" 200 30812
+INFO 2026-01-07 21:53:37,278 basehttp 10640 1488 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 21:54:16,487 signals 10640 8764 Triggering notification for Order #7. Created: False, Status changed: True
+INFO 2026-01-07 21:54:16,490 signals 10640 8764 Sending status update email for Order #7 to krishnananbu99@gmail.com. New status: shipped
+INFO 2026-01-07 21:54:23,717 signals 10640 8764 Status update email sent successfully for Order #7
+INFO 2026-01-07 21:54:23,805 basehttp 10640 8764 "POST /admin/shop/order/ HTTP/1.1" 302 0
+INFO 2026-01-07 21:54:24,151 basehttp 10640 8764 "GET /admin/shop/order/ HTTP/1.1" 200 30728
+INFO 2026-01-07 21:54:24,441 basehttp 10640 8764 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 21:59:48,892 signals 10640 10408 Triggering notification for Order #7. Created: False, Status changed: True
+INFO 2026-01-07 21:59:48,912 signals 10640 10408 Sending status update email for Order #7 to krishnananbu99@gmail.com. New status: delivered
+INFO 2026-01-07 21:59:49,515 signals 10640 10408 Invoice PDF attached for Order #7
+INFO 2026-01-07 21:59:56,827 signals 10640 10408 Status update email sent successfully for Order #7
+INFO 2026-01-07 21:59:56,888 basehttp 10640 10408 "POST /admin/shop/order/ HTTP/1.1" 302 0
+INFO 2026-01-07 21:59:57,314 basehttp 10640 10408 "GET /admin/shop/order/ HTTP/1.1" 200 30728
+INFO 2026-01-07 21:59:57,711 basehttp 10640 10408 "GET /admin/jsi18n/ HTTP/1.1" 200 3342

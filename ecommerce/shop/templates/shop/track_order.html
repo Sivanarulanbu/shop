@@ -1,7 +1,7 @@
 {% extends "shop/base.html" %}
 {% load static %}
 
-{% block title %}Track Order - {{ order.tracking_number }}{% endblock %}
+{% block title %}Track Order #{{ order.tracking_number }} - Swiftbuy{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
@@ -17,8 +17,8 @@
 
                         <!-- Order Progress -->
                         <div class="order-progress mb-5">
-                            <div class="progress-track">
-                                <div class="progress-bar"
+                            <div class="tracking-line-container">
+                                <div class="tracking-line-fill"
                                     style="width: {{ progress_percentage }}%; background-color: {% if order.status == 'delivered' %}#146c43{% elif order.status == 'shipped' %}#0d6efd{% else %}#3b82f6{% endif %};">
                                 </div>
                                 <div class="progress-step {% if order.status != 'pending' %}completed{% endif %} active"
@@ -161,18 +161,23 @@
         padding: 0 40px;
     }
 
-    .progress-track {
+    .tracking-line-container {
         position: relative;
-        height: 4px;
+        height: 6px;
         background: #e9ecef;
         margin: 50px 0;
+        border-radius: 10px;
     }
 
-    .progress-bar {
+    .tracking-line-fill {
         position: absolute;
-        height: 4px;
+        top: 0;
+        left: 0;
+        height: 100%;
         background: #3b82f6;
         transition: width 0.3s ease;
+        border-radius: 10px;
+        z-index: 1;
     }
 
     .progress-step {
@@ -187,6 +192,7 @@
         align-items: center;
         justify-content: center;
         transform: translateX(-50%);
+        z-index: 2;
     }
 
     .progress-step.active {

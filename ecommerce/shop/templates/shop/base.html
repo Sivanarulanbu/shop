@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Swiftbuy{% endblock %}</title>
+    <title>{% block title %}Swiftbuy | Online Shopping Store{% endblock %}</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'logo/logo.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'logo/logo.png' %}">
@@ -225,8 +225,9 @@
                     </a>
                 </div>
                 <div class="col-lg-6">
-                    <form class="search-form">
-                        <input type="text" class="form-control" placeholder="Search for products...">
+                    <form class="search-form" action="{% url 'shop:product_list' %}" method="get">
+                        <input type="text" name="search" class="form-control" placeholder="Search for products..."
+                            value="{{ request.GET.search }}">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>

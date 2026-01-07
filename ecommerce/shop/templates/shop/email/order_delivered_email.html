@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmed - Swiftbuy</title>
+    <title>Order Delivered - Swiftbuy</title>
     <style>
         body {
             margin: 0;
@@ -77,28 +77,21 @@
             margin-bottom: 30px;
         }
 
-        .status-card {
-            background-color: #eff6ff;
+        .success-banner {
+            background-color: #f0fdf4;
             padding: 24px;
             border-radius: 12px;
             text-align: center;
             margin-bottom: 32px;
-            border: 1px solid #dbeafe;
+            border: 1px solid #dcfce7;
         }
 
-        .status-label {
-            font-size: 12px;
-            color: #3b82f6;
-            text-transform: uppercase;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .status-value {
-            font-size: 22px;
-            color: #1e3a8a;
+        .success-msg {
+            color: #166534;
+            font-size: 20px;
             font-weight: 800;
+            letter-spacing: 0.5px;
+            margin: 0;
         }
 
         .summary-title {
@@ -127,12 +120,6 @@
             margin: 4px 0 0;
         }
 
-        .item-price {
-            color: #1e293b;
-            font-weight: 700;
-            font-size: 15px;
-        }
-
         .total-section {
             padding-top: 20px;
             text-align: right;
@@ -142,13 +129,20 @@
             color: #64748b;
             font-size: 16px;
             font-weight: 500;
-            margin-right: 8px;
         }
 
         .total-value {
             color: #1e3a8a;
             font-size: 20px;
             font-weight: 800;
+        }
+
+        .attachment-note {
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 32px;
+            border-left: 4px solid #3b82f6;
         }
 
         .footer {
@@ -158,17 +152,6 @@
             color: #94a3b8;
             font-size: 12px;
         }
-
-        .btn {
-            display: inline-block;
-            background-color: #2563EB;
-            color: #ffffff;
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            margin-top: 20px;
-        }
     </style>
 </head>
 
@@ -176,17 +159,16 @@
     <div class="container">
         <div class="header">
             <img src="cid:logo" alt="Swiftbuy" class="logo-circle">
-            <h1 class="hero-title">Order Confirmed!</h1>
+            <h1 class="hero-title">Order Delivered! ✨</h1>
         </div>
         <div class="content">
-            <p class="greeting">Hello {{ order.first_name }},</p>
-            <p class="msg">Exciting news! Your order #{{ order.tracking_number }} is successfully confirmed and we're
-                getting it ready for you.</p>
-            <div class="status-card">
-                <span class="status-label">Current Status</span>
-                <span class="status-value">CONFIRMED</span>
+            <p class="greeting">Hi {{ order.first_name }},</p>
+            <p class="msg">We're happy to let you know that your order #{{ order.tracking_number }} has been
+                successfully delivered! We hope you love your new products.</p>
+            <div class="success-banner">
+                <p class="success-msg">✅ DELIVERED SUCCESSFULLY</p>
             </div>
-            <h3 class="summary-title">Order Summary</h3>
+            <h3 class="summary-title">Delivered Items</h3>
             <table>
                 {% for item in items %}
                 <tr class="item-row">
@@ -195,18 +177,22 @@
                         <p class="item-qty">Qty: {{ item.quantity }}</p>
                     </td>
                     <td align="right" style="padding:16px 0;">
-                        <span class="item-price">${{ item.get_total_price }}</span>
+                        <span style="color:#1e293b; font-weight:700;">${{ item.get_total_price }}</span>
                     </td>
                 </tr>
                 {% endfor %}
             </table>
             <div class="total-section">
-                <span class="total-label">Total Amount Paid:</span>
+                <span class="total-label">Total Paid:</span>
                 <span class="total-value">${{ order.total_amount }}</span>
             </div>
-            <div style="text-align:center; margin-top:40px; padding-top:30px; border-top:1px solid #f1f5f9;">
-                <a href="{{ tracking_url }}" class="btn">Track Your Order Live</a>
-                <p style="margin-top:25px; color:#64748b; font-size:14px;">Need help? support: {{ contact_email }}</p>
+            <div class="attachment-note">
+                <p style="margin:0; font-size:14px; color:#475569;">📎 Attached: We've included a PDF copy of your
+                    official invoice with this email.</p>
+            </div>
+            <div
+                style="text-align:center; margin-top:40px; padding-top:30px; border-top:1px solid #f1f5f9; color:#64748b; font-size:14px;">
+                Need help? support: {{ contact_email }}
             </div>
         </div>
         <div class="footer">

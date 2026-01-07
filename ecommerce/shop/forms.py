@@ -57,6 +57,11 @@ class ProductFilterForm(forms.Form):
         widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'})
     )
     
+    price_max = forms.IntegerField(
+        required=False,
+        widget=forms.HiddenInput()
+    )
+    
     price_range = forms.ChoiceField(
         choices=PRICE_CHOICES,
         required=False,
@@ -66,7 +71,11 @@ class ProductFilterForm(forms.Form):
     sort_by = forms.ChoiceField(
         choices=SORT_CHOICES,
         required=False,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={
+            'class': 'form-select form-select-sm',
+            'form': 'filter-form',
+            'onchange': 'this.form.submit()'
+        })
     )
     
     featured_only = forms.BooleanField(

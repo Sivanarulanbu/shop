@@ -1,7 +1,7 @@
 {% extends "shop/base.html" %}
 {% load static %}
 
-{% block title %}Order Confirmation{% endblock %}
+{% block title %}Order Confirmed - Swiftbuy{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
@@ -16,8 +16,11 @@
                         <div
                             class="alert {% if order.status == 'pending' %}alert-warning{% elif order.status == 'processing' %}alert-info{% elif order.status == 'confirmed' %}alert-success{% elif order.status == 'cancelled' %}alert-danger{% else %}alert-info{% endif %}">
                             <h4 class="mb-2">Order Status: {{ order.get_status_display }}</h4>
-                            <p class="mb-0"><small>Last Update: {{ order.status_updates.first.timestamp|date:"F j, Y,
-                                    g:i a" }}</small></p>
+                            <p class="mb-0">
+                                <small>Last Update:
+                                    {{ order.status_updates.first.timestamp|date:"F j, Y, g:i a" }}
+                                </small>
+                            </p>
                         </div>
                     </div>
 

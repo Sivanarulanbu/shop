@@ -28,7 +28,7 @@ def validate_order_status(status):
     return status
 
 def product_list(request):
-    products = Product.objects.all()
+    products = Product.objects.select_related('category', 'brand').all()
     form = ProductFilterForm(request.GET)
     
     if form.is_valid():
@@ -50,11 +50,15 @@ def product_list(request):
         # Brand filter
         brand = form.cleaned_data.get('brand')
         if brand:
-            products = products.filter(brand=brand)
+            products = products.filter(brand__in=brand)
         
         # Price range filter
         price_range = form.cleaned_data.get('price_range')
-        if price_range:
+        price_max = form.cleaned_data.get('price_max')
+        
+        if price_max:
+            products = products.filter(price__lte=price_max)
+        elif price_range:
             if price_range == '0-50':
                 products = products.filter(price__lt=50)
             elif price_range == '50-100':
@@ -339,10 +343,10 @@ def track_order(request):
     # Status weights for progress calculation
     status_weights = {
         'pending': 0,
-        'processing': 20,
-        'confirmed': 40,
-        'shipped': 60,
-        'out_for_delivery': 80,
+        'processing': 25,
+        'confirmed': 50,
+        'shipped': 75,
+        'out_for_delivery': 90,
         'delivered': 100,
         'cancelled': -1,
         'refunded': -1
@@ -406,9 +410,10 @@ def admin_dashboard(request, extra_context=None):
     now = timezone.now()
     month_ago = now - timedelta(days=30)
     
-    # Financial Stats
-    total_sales = Order.objects.filter(payment_status='completed').aggregate(Sum('total_amount'))['total_amount__sum'] or 0
-    month_sales = Order.objects.filter(payment_status='completed', created_at__gte=month_ago).aggregate(Sum('total_amount'))['total_amount__sum'] or 0
+    # Financial Stats - Include all orders that are not cancelled or failed
+    valid_orders = Order.objects.exclude(status__in=['cancelled', 'payment_failed', 'refunded'])
+    total_sales = valid_orders.aggregate(Sum('total_amount'))['total_amount__sum'] or 0
+    month_sales = valid_orders.filter(created_at__gte=month_ago).aggregate(Sum('total_amount'))['total_amount__sum'] or 0
     total_orders = Order.objects.count()
     total_customers = User.objects.filter(orders__isnull=False).distinct().count()
     

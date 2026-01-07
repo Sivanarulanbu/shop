@@ -1,9 +1,15 @@
 from django.db.models.signals import post_save, pre_save, post_delete
 from django.dispatch import receiver
 from django.utils import timezone
-from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives, send_mail
 from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from django.conf import settings
+from django.contrib.staticfiles import finders
+from email.mime.image import MIMEImage
+from xhtml2pdf import pisa
+import os
+import io
 from django.contrib.auth.models import User
 from .models import Order, OrderItem, OrderStatus, Product
 
@@ -63,8 +69,22 @@ def order_status_notification(sender, instance, created, **kwargs):
             'order': instance,
             'status': instance.get_status_display(),
             'tracking_number': instance.tracking_number,
-            'is_new_order': created
+            'is_new_order': created,
+            'items': instance.items.select_related('product').all(),
+            'subtotal': instance.subtotal,
+            'contact_email': settings.DEFAULT_FROM_EMAIL,
+            'now': timezone.now()
         }
+        
+        # Build tracking URL
+        try:
+            from django.urls import reverse
+            # Note: Hardcoding domain for emails as request is not always available in signals
+            site_url = getattr(settings, 'SITE_URL', 'http://localhost:8000')
+            tracking_url = f"{site_url}{reverse('shop:track_order')}?order_number={instance.tracking_number}"
+            context['tracking_url'] = tracking_url
+        except:
+            context['tracking_url'] = '#'
         
         # Choose appropriate template based on whether it's a new order or status update
         if created:
@@ -75,21 +95,64 @@ def order_status_notification(sender, instance, created, **kwargs):
         else:
             # Send status update email
             logger.info(f"Sending status update email for Order #{instance.id} to {instance.email}. New status: {instance.status}")
+            
+            # Use specific template based on status
+            template_name = 'shop/email/order_status_update.html'
+            if instance.status == 'shipped':
+                template_name = 'shop/email/order_shipped_email.html'
+            elif instance.status == 'delivered':
+                template_name = 'shop/email/order_delivered_email.html'
+            
             try:
-                html_message = render_to_string('shop/email/order_status_update.html', context)
-                plain_message = render_to_string('shop/email/order_status_update.txt', context)
+                html_message = render_to_string(template_name, context)
+                plain_message = strip_tags(html_message)
                 
-                send_mail(
-                    f'Order #{instance.id} Status Update',
+                subject = f'Order #{instance.id} Status Update'
+                if instance.status == 'delivered':
+                    subject = f'Your Order #{instance.id} has been Delivered! - Swiftbuy'
+                
+                from_email = settings.DEFAULT_FROM_EMAIL
+                to_email = instance.email
+                
+                msg = EmailMultiAlternatives(
+                    subject,
                     plain_message,
-                    settings.DEFAULT_FROM_EMAIL,
-                    [instance.email],
-                    html_message=html_message,
-                    fail_silently=False,  # Set to False to catch errors in logs
+                    from_email,
+                    [to_email]
                 )
+                msg.attach_alternative(html_message, "text/html")
+                
+                # Attach logo image
+                logo_path = finders.find('logo/logo.png')
+                if logo_path:
+                    with open(logo_path, 'rb') as f:
+                        logo_data = f.read()
+                        image = MIMEImage(logo_data)
+                        image.add_header('Content-ID', '<logo>')
+                        msg.attach(image)
+                
+                # If delivered, generate and attach Invoice PDF
+                if instance.status == 'delivered':
+                    try:
+                        # Render the PDF template
+                        pdf_html = render_to_string('shop/email/invoice_pdf.html', context)
+                        pdf_out = io.BytesIO()
+                        pisa_status = pisa.CreatePDF(io.BytesIO(pdf_html.encode("utf-8")), dest=pdf_out)
+                        
+                        if not pisa_status.err:
+                            msg.attach(f'Invoice_{instance.tracking_number}.pdf', pdf_out.getvalue(), 'application/pdf')
+                            logger.info(f"Invoice PDF attached for Order #{instance.id}")
+                        else:
+                            logger.error(f"PDF generation error for Order #{instance.id}: {pisa_status.err}")
+                    except Exception as pdf_err:
+                        logger.error(f"Failed to generate/attach PDF for Order #{instance.id}: {str(pdf_err)}")
+                
+                msg.send(fail_silently=False)
                 logger.info(f"Status update email sent successfully for Order #{instance.id}")
             except Exception as e:
                 logger.error(f"Failed to send status update email for Order #{instance.id}: {str(e)}")
+                import traceback
+                logger.error(traceback.format_exc())
 
 @receiver(post_save, sender=OrderStatus)
 def create_order_status_history(sender, instance, created, **kwargs):

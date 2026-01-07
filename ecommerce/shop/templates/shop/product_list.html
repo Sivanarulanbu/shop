@@ -1,7 +1,7 @@
 {% extends 'shop/base.html' %}
 {% load static %}
 
-{% block title %}Products - E-Commerce Store{% endblock %}
+{% block title %}Products - Swiftbuy{% endblock %}
 
 {% block content %}
 <div class="row">
@@ -59,7 +59,8 @@
                         <div class="price-slider-wrapper">
                             {% with p_max=request.GET.price_max|default:'5000' %}
                             <input type="range" class="form-range" id="priceRange" min="0" max="5000" step="50"
-                                value="{{ p_max }}" oninput="this.nextElementSibling.value = '$' + this.value">
+                                value="{{ p_max }}"
+                                oninput="this.nextElementSibling.value = '$' + this.value; document.getElementById('price_max_hidden').value = this.value;">
                             <output class="fw-bold text-primary mt-1 d-block">${{ p_max }}</output>
                             <input type="hidden" name="price_max" id="price_max_hidden" value="{{ p_max }}">
                             {% endwith %}
@@ -99,13 +100,9 @@
             <h2 class="fw-bold">Explore Our Products</h2>
             <div class="d-flex align-items-center gap-3">
                 <span class="text-muted small">{{ total_products }} products found</span>
-                <select name="sort_by" class="form-select form-select-sm" style="width: 150px;"
-                    onchange="document.getElementById('filter-form').submit();">
-                    <option value="">Sort By</option>
-                    <option value="price_low">Price: Low to High</option>
-                    <option value="price_high">Price: High to Low</option>
-                    <option value="newest">Newest First</option>
-                </select>
+                <div style="width: 150px;">
+                    {{ form.sort_by }}
+                </div>
             </div>
         </div>
 
@@ -134,7 +131,8 @@
 
                             {% if product.discount_percentage %}
                             <div class="position-absolute top-0 end-0 m-2">
-                                <span class="badge bg-danger shadow-sm small">-{{ product.discount_percentage }}%</span>
+                                <span class="badge bg-success shadow-sm small">{{ product.discount_percentage }}%
+                                    OFF</span>
                             </div>
                             {% endif %}
                         </div>
@@ -174,7 +172,7 @@
 
         <!-- Pagination -->
         {% if products.has_other_pages %}
-        <nav aria-label="Page navigation">
+        <nav aria-label="Page navigation" class="mt-5 py-4">
             <ul class="pagination justify-content-center">
                 {% if products.has_previous %}
                 <li class="page-item">
@@ -192,8 +190,9 @@
                 {% else %}
                 <li class="page-item">
                     <a class="page-link"
-                        href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{
-                        num }}</a>
+                        href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        {{ num }}
+                    </a>
                 </li>
                 {% endif %}
                 {% endfor %}

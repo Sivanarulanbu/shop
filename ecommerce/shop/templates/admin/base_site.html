@@ -1,11 +1,11 @@
 {% extends "admin/base.html" %}
 
-{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block title %}Swiftbuy Admin | {% endblock %}
 
 {% block branding %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <h1 id="site-name">
-    <a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a>
+    <a href="{% url 'admin:index' %}">Swiftbuy Administration</a>
 </h1>
 {% endblock %}
 

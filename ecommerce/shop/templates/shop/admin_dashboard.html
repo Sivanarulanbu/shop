@@ -179,8 +179,7 @@
                                     <td><span class="text-dark small">{{ product.name }}</span></td>
                                     <td class="text-center">
                                         <span
-                                            class="badge {% if product.stock <= 5 %}bg-soft-danger text-danger{% else %}bg-soft-warning text-warning{% endif %}">{{
-                                            product.stock }} left</span>
+                                            class="badge {% if product.stock <= 5 %}bg-soft-danger text-danger{% else %}bg-soft-warning text-warning{% endif %}">{{ product.stock }} left</span>
                                     </td>
                                     <td class="text-end">
                                         <a href="{% url 'admin:shop_product_change' product.id %}"

@@ -5289,3 +5289,5 @@ INFO 2026-01-07 21:59:56,827 signals 10640 10408 Status update email sent succes
 INFO 2026-01-07 21:59:56,888 basehttp 10640 10408 "POST /admin/shop/order/ HTTP/1.1" 302 0
 INFO 2026-01-07 21:59:57,314 basehttp 10640 10408 "GET /admin/shop/order/ HTTP/1.1" 200 30728
 INFO 2026-01-07 21:59:57,711 basehttp 10640 10408 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-07 22:28:54,609 autoreload 10640 14832 C:\Users\Dell\OneDrive\Desktop\git\ecom\ecommerce\ecommerce\ecommerce\settings.py changed, reloading.
+INFO 2026-01-07 22:29:13,838 autoreload 3668 10720 Watching for file changes with StatReloader

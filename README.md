@@ -124,7 +124,22 @@ A bespoke **Admin Dashboard** (beyond standard Django admin) that provides:
     python manage.py runserver
     ```
 
+### 🐳 Docker Execution
+Alternatively, you can run the entire ecosystem using Docker:
+1.  **Build and Start:**
+    ```bash
+    docker-compose up --build
+    ```
+2.  **Run Migrations (inside container):**
+    ```bash
+    docker-compose exec web python manage.py migrate
+    ```
+3.  **Access:**
+    - App: [http://localhost:8000](http://localhost:8000)
+    - Admin: [http://localhost:8000/admin](http://localhost:8000/admin)
+
 ---
+
 
 ## 🔐 Administrative Access
 Manage your store at `127.0.0.1:8000/admin/`:

@@ -6,11 +6,12 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_DB=shop01
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=Siva5107
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     ports:
       - "5433:5432"
+    restart: always
 
   web:
     build: .
@@ -19,14 +20,11 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-    environment:
-      - DB_NAME=shop01
-      - DB_USER=postgres
-      - DB_PASSWORD=Siva5107
-      - DB_HOST=db
-      - DB_PORT=5432
+    env_file:
+      - .env
     depends_on:
       - db
+    restart: always
 
 volumes:
   postgres_data:

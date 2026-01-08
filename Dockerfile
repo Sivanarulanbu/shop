@@ -44,4 +44,4 @@ EXPOSE 8000
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
 
 # Run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "ecommerce.wsgi:application"]
+CMD gunicorn --bind 0.0.0.0:$PORT ecommerce.wsgi:application

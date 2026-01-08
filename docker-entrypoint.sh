@@ -17,6 +17,7 @@ python manage.py migrate
 
 # Create superuser if it doesn't exist
 echo "Creating superuser..."
+export DJANGO_SETTINGS_MODULE=ecommerce.settings
 python << END
 import django
 import os
@@ -32,6 +33,11 @@ if not User.objects.filter(username=username).exists():
 else:
     print(f'Superuser "{username}" already exists.')
 END
+
+# Debug: Show file structure to find why statics are missing
+echo "DEBUG: Current directory and files:"
+pwd
+ls -R | grep -v "node_modules" | head -n 20
 
 # Collect static files
 echo "Collecting static files..."

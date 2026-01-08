@@ -18,3 +18,4 @@ staticfiles/
 .env
 Dockerfile
 docker-compose.yml
+ecommerce/ui-project/

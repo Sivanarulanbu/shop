@@ -84,6 +84,12 @@ if not DATABASES['default']:
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Debug prints for Railway logs
+print(f"DEBUG: BASE_DIR is {BASE_DIR}")
+print(f"DEBUG: Static files are being searched in: {STATICFILES_DIRS}")
+print(f"DEBUG: Static root is: {STATIC_ROOT}")
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Cloudinary settings
 CLOUDINARY_STORAGE = {

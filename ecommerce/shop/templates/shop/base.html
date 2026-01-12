@@ -22,7 +22,7 @@
         rel="stylesheet">
 
     <link href="{% static 'css/order.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=1.2">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2.0">
     <style>
         /* Top Bar */
         .top-bar {
@@ -221,7 +221,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <a href="{% url 'shop:product_list' %}" class="navbar-brand">
-                        <img src="{% static 'logo/logo.png' %}" alt="Swiftbuy" class="logo-img">
+                        <img src="{% static 'logo/logo.png' %}" alt="Swiftbuy" class="logo-img"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="logo-text" style="display: none;">Swiftbuy</span>
                     </a>
                 </div>
                 <div class="col-lg-6">
@@ -238,11 +240,12 @@
                             <a href="#" class="action-btn">
                                 <i class="far fa-user"></i>
                             </a>
-                            <div class="user-menu">
-                                <div class="px-3 py-3 text-center">
+                            <div class="user-menu border-0 shadow-lg">
+                                <div class="px-4 py-3">
                                     <p class="mb-0 fw-bold">Hello, {{user.first_name|default:user.username}}</p>
+                                    <small class="text-muted">Personal Dashboard</small>
                                 </div>
-                                <hr class="m-0">
+                                <hr class="my-0">
                                 <a href="#" class="user-menu-link">
                                     <i class="fas fa-user-circle"></i>
                                     My Profile
@@ -256,13 +259,13 @@
                                     Wishlist
                                 </a>
                                 {% if user.is_staff %}
-                                <hr class="m-0">
+                                <hr class="my-0">
                                 <a href="{% url 'admin_dashboard' %}" class="user-menu-link text-primary fw-bold">
                                     <i class="fas fa-chart-line"></i>
                                     Dashboard
                                 </a>
                                 {% endif %}
-                                <hr class="m-0">
+                                <hr class="my-0">
                                 <a href="{% url 'accounts:logout' %}" class="user-menu-link text-danger">
                                     <i class="fas fa-sign-out-alt"></i>
                                     Logout
@@ -274,24 +277,24 @@
                             <a href="#" class="action-btn">
                                 <i class="far fa-user"></i>
                             </a>
-                            <div class="user-menu">
-                                <div class="px-3 py-2">
+                            <div class="user-menu border-0 shadow-lg">
+                                <div class="px-4 py-3">
                                     <p class="mb-0 fw-bold">Welcome!</p>
-                                    <small class="text-muted">Choose your portal</small>
+                                    <small class="text-muted">Access your account</small>
                                 </div>
-                                <hr class="my-1">
+                                <hr class="my-0">
                                 <a href="{% url 'accounts:customer_login' %}" class="user-menu-link">
                                     <i class="fas fa-shopping-bag"></i>
-                                    Customer Login
+                                    Customer Portal
                                 </a>
                                 <a href="{% url 'accounts:admin_login' %}" class="user-menu-link">
                                     <i class="fas fa-user-shield"></i>
-                                    Admin Login
+                                    Admin Dashboard
                                 </a>
-                                <hr class="my-1">
+                                <hr class="my-0">
                                 <a href="{% url 'accounts:register' %}" class="user-menu-link">
                                     <i class="fas fa-user-plus"></i>
-                                    Register
+                                    Create Account
                                 </a>
                             </div>
                         </div>
@@ -374,7 +377,9 @@
             <div class="row g-4 mb-4">
                 <div class="col-lg-4">
                     <div class="footer-widget">
-                        <a href="{% url 'shop:product_list' %}" class="navbar-brand mb-4 d-inline-block">Swiftbuy</a>
+                        <a href="{% url 'shop:product_list' %}" class="navbar-brand mb-4 d-inline-block">
+                            <span class="logo-text">Swiftbuy</span>
+                        </a>
                         <p>Your premium shopping destination for quality products and exceptional service. We offer a
                             wide range of products at competitive prices.</p>
                         <div class="social-links mt-4">

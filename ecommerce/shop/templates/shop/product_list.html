@@ -7,7 +7,7 @@
 <div class="row">
     <!-- Filters Sidebar -->
     <div class="col-md-3">
-        <div class="card border-0 shadow-sm">
+        <div class="sidebar-card card border-0 shadow-sm">
             <div class="card-header bg-white border-bottom py-3">
                 <h5 class="mb-0 fw-bold"><i class="fas fa-filter me-2 text-primary"></i> Filters</h5>
             </div>
@@ -209,11 +209,48 @@
         {% endif %}
 
         {% else %}
-        <div class="text-center py-5">
-            <i class="fas fa-search fa-3x text-muted mb-3"></i>
-            <h3>No products found</h3>
-            <p class="text-muted">Try adjusting your search criteria or browse all products.</p>
-            <a href="{% url 'shop:product_list' %}" class="btn btn-primary">View All Products</a>
+        <div class="glass-card text-center py-5 px-4 mb-5 border-0">
+            <div class="mb-4">
+                <div class="d-inline-flex align-items-center justify-content-center bg-light rounded-circle shadow-sm"
+                    style="width: 100px; height: 100px;">
+                    <i class="fas fa-shopping-basket fa-3x text-primary opacity-50"></i>
+                </div>
+            </div>
+            <h3 class="fw-bold mb-3">Your exploration starts here</h3>
+            <p class="text-muted mx-auto mb-4" style="max-width: 500px;">
+                We couldn't find any products matching your current filters.
+                Why not browse our full collection or try a different category?
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{% url 'shop:product_list' %}" class="btn btn-premium">
+                    <i class="fas fa-th-large me-2"></i>View All Collections
+                </a>
+                <button onclick="window.location.reload()" class="btn btn-outline-secondary rounded-pill px-4">
+                    <i class="fas fa-sync-alt me-2"></i>Reset Filters
+                </button>
+            </div>
+
+            <div class="mt-5 pt-5 border-top">
+                <p class="text-muted small fw-bold text-uppercase mb-4">Popular Categories</p>
+                <div class="row g-3 justify-content-center">
+                    <div class="col-md-2 col-4">
+                        <a href="?category=electronics" class="text-decoration-none">
+                            <div class="p-3 bg-white border rounded shadow-sm hover-translate">
+                                <i class="fas fa-plug text-primary mb-2"></i>
+                                <div class="small fw-bold text-dark">Electronics</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-4">
+                        <a href="?category=fashion" class="text-decoration-none">
+                            <div class="p-3 bg-white border rounded shadow-sm hover-translate">
+                                <i class="fas fa-tshirt text-primary mb-2"></i>
+                                <div class="small fw-bold text-dark">Fashion</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         {% endif %}
     </div>

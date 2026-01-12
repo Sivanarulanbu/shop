@@ -130,6 +130,10 @@ STORAGES = {
     },
 }
 
+# Legacy settings for compatibility with older third-party apps
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 # Cloudinary settings
 CLOUDINARY_STORAGE = {

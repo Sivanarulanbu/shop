@@ -49,9 +49,9 @@ def send_welcome_email(sender, instance, created, **kwargs):
                     email.content_subtype = 'html'
             
             # Send the email
-            email.send()
+            email.send(fail_silently=True)
             print("Email sent successfully")
     except Exception as e:
         print(f"Error sending welcome email: {str(e)}")
-        # Re-raise the exception to see it in the server logs
-        raise
+        # Do not re-raise the exception so that user creation can still succeed 
+        # even if email fails due to network or configuration issues.

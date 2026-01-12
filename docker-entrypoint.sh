@@ -37,11 +37,13 @@ END
 # Debug: Show file structure to find why statics are missing
 echo "DEBUG: Current directory and files:"
 pwd
-ls -R | grep -v "node_modules" | head -n 20
+ls -R | grep -v "node_modules" | head -n 30
+echo "DEBUG: Contents of static folder:"
+ls -R static || echo "static folder not found"
 
 # Collect static files
 echo "Collecting static files..."
-python manage.py collectstatic --noinput
+python manage.py collectstatic --noinput --clear
 
 # Start server
 echo "Starting server..."

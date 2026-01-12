@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     libcairo2-dev \
     netcat-openbsd \
+    curl \
     --no-install-recommends && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -40,8 +41,16 @@ WORKDIR /app/ecommerce
 # Expose the port the app runs on
 EXPOSE 8000
 
+# Healthcheck
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:$PORT/ || exit 1
+
 # Set entrypoint
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
 
 # Run the application
-CMD gunicorn --bind 0.0.0.0:$PORT ecommerce.wsgi:application
+CMD gunicorn --bind 0.0.0.0:$PORT \
+    --workers 3 \
+    --timeout 120 \
+    --forwarded-allow-ips='*' \
+    ecommerce.wsgi:application

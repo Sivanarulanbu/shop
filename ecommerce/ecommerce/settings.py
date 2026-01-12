@@ -110,6 +110,14 @@ print(f"DEBUG: BASE_DIR is {BASE_DIR}")
 print(f"DEBUG: Static files are being searched in: {STATICFILES_DIRS}")
 print(f"DEBUG: Static root is: {STATIC_ROOT}")
 
+# Aggressive directory listing for debugging
+for static_path in STATICFILES_DIRS:
+    if os.path.exists(static_path):
+        print(f"DEBUG: Static directory exists at {static_path}")
+        print(f"DEBUG: Contents of {static_path}: {os.listdir(static_path)}")
+    else:
+        print(f"DEBUG: Static directory DOES NOT EXIST at {static_path}")
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 

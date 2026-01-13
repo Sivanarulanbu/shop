@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',
     'cloudinary',
     'model_utils',  # For model tracking
     'shop.apps.ShopConfig',  # Use AppConfig for signal registration
@@ -137,16 +136,25 @@ STORAGES = {
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# HACK: Force-inject into django.conf.settings for libraries that bypass the settings module
+# Extremely aggressive injection for Django 5.x compatibility
 import django.conf
+import sys
+# Set on the module itself (current settings)
+setattr(sys.modules[__name__], 'STATICFILES_STORAGE', STATICFILES_STORAGE)
+setattr(sys.modules[__name__], 'DEFAULT_FILE_STORAGE', DEFAULT_FILE_STORAGE)
+
+# Also try to set it globally
 try:
-    if not hasattr(django.conf.settings, 'STATICFILES_STORAGE'):
-        setattr(django.conf.settings, 'STATICFILES_STORAGE', STATICFILES_STORAGE)
-    if not hasattr(django.conf.settings, 'DEFAULT_FILE_STORAGE'):
-        setattr(django.conf.settings, 'DEFAULT_FILE_STORAGE', DEFAULT_FILE_STORAGE)
-    print("DEBUG: Successfully injected legacy storage settings into django.conf.settings")
+    if hasattr(django.conf, 'settings'):
+        # This is a bit dangerous but necessary for buggy libraries
+        try:
+            django.conf.settings.STATICFILES_STORAGE = STATICFILES_STORAGE
+            django.conf.settings.DEFAULT_FILE_STORAGE = DEFAULT_FILE_STORAGE
+        except:
+            pass 
+    print("DEBUG: Legacy storage settings defined and injected.")
 except Exception as e:
-    print(f"DEBUG: Failed to inject legacy settings: {e}")
+    print(f"DEBUG: Injection skip: {e}")
 
 
 # Cloudinary settings

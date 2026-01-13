@@ -1,11 +1,7 @@
-## Force reload
 import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
-import django
-from django.utils.version import get_version
-print(f"DEBUG: STARTING SETTINGS LOAD. Django version: {get_version()}")
 
 load_dotenv()
 
@@ -29,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'model_utils',  # For model tracking
@@ -107,55 +104,11 @@ STATICFILES_DIRS = [
 ]
 
 
-# Debug prints for Railway logs
-print(f"DEBUG: BASE_DIR is {BASE_DIR}")
-print(f"DEBUG: Static files are being searched in: {STATICFILES_DIRS}")
-print(f"DEBUG: Static root is: {STATIC_ROOT}")
-
-# Aggressive directory listing for debugging
-for static_path in STATICFILES_DIRS:
-    if os.path.exists(static_path):
-        print(f"DEBUG: Static directory exists at {static_path}")
-        print(f"DEBUG: Contents of {static_path}: {os.listdir(static_path)}")
-    else:
-        print(f"DEBUG: Static directory DOES NOT EXIST at {static_path}")
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
-    },
-}
-
-# Legacy settings for compatibility with older third-party apps
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# Extremely aggressive injection for Django 5.x compatibility
-import django.conf
-import sys
-# Set on the module itself (current settings)
-setattr(sys.modules[__name__], 'STATICFILES_STORAGE', STATICFILES_STORAGE)
-setattr(sys.modules[__name__], 'DEFAULT_FILE_STORAGE', DEFAULT_FILE_STORAGE)
-
-# Also try to set it globally
-try:
-    if hasattr(django.conf, 'settings'):
-        # This is a bit dangerous but necessary for buggy libraries
-        try:
-            django.conf.settings.STATICFILES_STORAGE = STATICFILES_STORAGE
-            django.conf.settings.DEFAULT_FILE_STORAGE = DEFAULT_FILE_STORAGE
-        except:
-            pass 
-    print("DEBUG: Legacy storage settings defined and injected.")
-except Exception as e:
-    print(f"DEBUG: Injection skip: {e}")
-
 
 # Cloudinary settings
 CLOUDINARY_STORAGE = {

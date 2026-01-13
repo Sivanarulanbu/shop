@@ -130,14 +130,21 @@ h6 {
     margin: 0 auto;
 }
 
-.search-form input {
+.search-form input,
+.search-input-modern {
     width: 100%;
-    padding: 10px 50px 10px 20px;
+    padding: 12px 50px 12px 20px;
     border: 1px solid var(--border);
     border-radius: 50px;
     background: var(--light);
     transition: var(--transition);
     font-size: 14px;
+    outline: none;
+}
+
+.search-form-wrapper {
+    position: relative;
+    width: 100%;
 }
 
 .search-form input:focus {
@@ -459,7 +466,8 @@ h6 {
 .user-menu {
     position: absolute;
     right: 0;
-    top: calc(100% + 15px);
+    top: 100%;
+    margin-top: 10px;
     width: 240px;
     background: white;
     border-radius: 12px;
@@ -469,7 +477,8 @@ h6 {
     visibility: hidden;
     transform: translateY(10px);
     transition: all 0.2s ease;
-    z-index: 1000;
+    z-index: 1050;
+    border: 1px solid var(--border);
 }
 
 .user-dropdown:hover .user-menu {

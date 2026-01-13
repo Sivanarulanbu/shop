@@ -273,7 +273,8 @@
                     </a>
                 </div>
                 <div class="col-lg-6">
-                    <form class="search-form-wrapper" action="{% url 'shop:product_list' %}" method="get">
+                    <form class="search-form-wrapper position-relative" action="{% url 'shop:product_list' %}"
+                        method="get">
                         <input type="text" name="search" class="search-input-modern"
                             placeholder="Search for products..." value="{{ request.GET.search }}">
                         <button type="submit"
@@ -329,21 +330,21 @@
                             <div class="user-menu border-0 shadow-lg">
                                 <div class="px-4 py-3">
                                     <p class="mb-0 fw-bold">Welcome!</p>
-                                    <small class="text-muted">Access your account</small>
+                                    <small class="text-muted">Choose your portal</small>
                                 </div>
                                 <hr class="my-0">
                                 <a href="{% url 'accounts:customer_login' %}" class="user-menu-link">
                                     <i class="fas fa-shopping-bag"></i>
-                                    Customer Portal
+                                    Customer Login
                                 </a>
                                 <a href="{% url 'accounts:admin_login' %}" class="user-menu-link">
                                     <i class="fas fa-user-shield"></i>
-                                    Admin Dashboard
+                                    Admin Login
                                 </a>
                                 <hr class="my-0">
                                 <a href="{% url 'accounts:register' %}" class="user-menu-link">
                                     <i class="fas fa-user-plus"></i>
-                                    Create Account
+                                    Register
                                 </a>
                             </div>
                         </div>
@@ -495,6 +496,7 @@
             });
         });
     </script>
+    {% block extra_js %}{% endblock %}
 </body>
 
 </html>

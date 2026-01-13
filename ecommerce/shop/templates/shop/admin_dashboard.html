@@ -17,6 +17,9 @@
 
             <div class="nav-section-label">Management</div>
 
+            <a href="{% url 'admin:auth_user_changelist' %}" class="nav-link">
+                <i class="fas fa-users"></i> Customers
+            </a>
             <a href="{% url 'admin:shop_product_changelist' %}" class="nav-link">
                 <i class="fas fa-box"></i> Products
             </a>
@@ -38,23 +41,28 @@
 
             <div class="nav-section-label">Configuration</div>
 
-            <a href="#" class="nav-link">
+            <a href="{% url 'admin:shop_homepagebanner_changelist' %}" class="nav-link">
                 <i class="fas fa-images"></i> Banners
             </a>
-            <a href="#" class="nav-link">
+            <a href="{% url 'admin:shop_shippingcourier_changelist' %}" class="nav-link">
                 <i class="fas fa-shipping-fast"></i> Couriers
             </a>
-            <a href="#" class="nav-link">
+            <a href="{% url 'admin:shop_sitesettings_changelist' %}" class="nav-link">
                 <i class="fas fa-cogs"></i> Site Settings
             </a>
 
             <div class="nav-section-label">Support</div>
 
-            <a href="#" class="nav-link">
+            <a href="{% url 'admin:shop_supportticket_changelist' %}" class="nav-link">
                 <i class="fas fa-headset"></i> Tickets
             </a>
-            <a href="#" class="nav-link">
+            <a href="{% url 'admin:shop_transaction_changelist' %}" class="nav-link">
                 <i class="fas fa-exchange-alt"></i> Transactions
+            </a>
+
+            <div class="nav-section-label">System</div>
+            <a href="/" class="nav-link mt-auto">
+                <i class="fas fa-external-link-alt"></i> View Website
             </a>
         </div>
     </div>
@@ -62,8 +70,12 @@
     <!-- Main Content -->
     <div class="col-md-9 col-lg-10 p-4 main-bg">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="dashboard-title">Analytics & Reports Dashboard</h2>
-            <div class="text-muted small">
+            <div>
+                <h2 class="dashboard-title mb-0">Analytics & Reports Dashboard</h2>
+                <span class="text-muted small">Welcome back, <strong>{{
+                        request.user.first_name|default:request.user.username }}</strong></span>
+            </div>
+            <div class="text-muted small dashboard-date">
                 <i class="far fa-calendar-alt me-1"></i> {% now "F j, Y" %}
             </div>
         </div>
@@ -113,7 +125,20 @@
                 <div class="stat-card">
                     <div class="stat-content">
                         <div class="stat-icon-wrapper bg-soft-warning">
-                            <i class="fas fa-user-friends text-warning"></i>
+                            <i class="fas fa-clock text-warning"></i>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-label">Pending Orders</span>
+                            <h3 class="stat-value text-dark">{{ pending_orders_count }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-icon-wrapper bg-soft-info">
+                            <i class="fas fa-user-friends text-info"></i>
                         </div>
                         <div class="stat-details">
                             <span class="stat-label">Active Customers</span>
@@ -179,7 +204,8 @@
                                     <td><span class="text-dark small">{{ product.name }}</span></td>
                                     <td class="text-center">
                                         <span
-                                            class="badge {% if product.stock <= 5 %}bg-soft-danger text-danger{% else %}bg-soft-warning text-warning{% endif %}">{{ product.stock }} left</span>
+                                            class="badge {% if product.stock <= 5 %}bg-soft-danger text-danger{% else %}bg-soft-warning text-warning{% endif %}">{{
+                                            product.stock }} left</span>
                                     </td>
                                     <td class="text-end">
                                         <a href="{% url 'admin:shop_product_change' product.id %}"
@@ -240,19 +266,24 @@
             <!-- Sales by Category Table -->
             <div class="col-lg-5">
                 <div class="content-card">
-                    <div class="card-header-premium">
+                    <div class="card-header-premium d-flex justify-content-between align-items-center">
                         <h5 class="m-0"><i class="fas fa-layer-group text-info me-2"></i> Sales by Category</h5>
                     </div>
-                    <div class="data-list px-3 pb-3">
-                        {% for item in sales_by_category %}
-                        <div
-                            class="d-flex justify-content-between align-items-center py-2 border-bottom last-no-border">
-                            <span class="text-muted small">{{ item.product__category__name }}</span>
-                            <span class="fw-bold text-dark">${{ item.total_rev|floatformat:0 }}</span>
+                    <div class="p-3">
+                        <div style="height: 250px;">
+                            <canvas id="categorySalesChart"></canvas>
                         </div>
-                        {% empty %}
-                        <div class="py-5 text-center text-muted small">No category data.</div>
-                        {% endfor %}
+                        <div class="data-list mt-3">
+                            {% for item in sales_by_category %}
+                            <div
+                                class="d-flex justify-content-between align-items-center py-2 border-bottom last-no-border">
+                                <span class="text-muted small">{{ item.product__category__name }}</span>
+                                <span class="fw-bold text-dark">${{ item.total_rev|floatformat:0 }}</span>
+                            </div>
+                            {% empty %}
+                            <div class="py-5 text-center text-muted small">No category data.</div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -461,4 +492,46 @@
         border-bottom: none !important;
     }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctxCategories = document.getElementById('categorySalesChart');
+        if (ctxCategories) {
+            new Chart(ctxCategories, {
+                type: 'doughnut',
+                data: {
+                    labels: [{% for item in sales_by_category %}"{{ item.product__category__name }}"{% if not forloop.last %}, {% endif %} {% endfor %}],
+        datasets: [{
+            data: [{% for item in sales_by_category %}{{ item.total_rev | floatformat: 0 }}{% if not forloop.last %}, {% endif %} {% endfor %}],
+    backgroundColor: [
+        '#3577f0',
+        '#10b981',
+        '#0ea5e9',
+        '#f59e0b',
+        '#ef4444',
+        '#6366f1',
+        '#8b5cf6',
+        '#ec4899'
+    ],
+        borderWidth: 0,
+            hoverOffset: 10
+                    }]
+                },
+    options: {
+        responsive: true,
+            maintainAspectRatio: false,
+                plugins: {
+            legend: {
+                display: false
+            }
+        },
+        cutout: '70%'
+    }
+            });
+        }
+    });
+</script>
 {% endblock %}

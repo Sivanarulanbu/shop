@@ -438,11 +438,15 @@ def admin_dashboard(request, extra_context=None):
     from django.contrib import admin
     app_list = admin.site.get_app_list(request)
     
+    # Pending Orders
+    pending_orders_count = Order.objects.filter(status='pending').count()
+    
     context = {
         'total_sales': total_sales,
         'month_sales': month_sales,
         'total_orders': total_orders,
         'total_customers': total_customers,
+        'pending_orders_count': pending_orders_count,
         'best_sellers': best_sellers,
         'inventory_alerts': inventory_alerts,
         'recent_transactions': recent_transactions,

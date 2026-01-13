@@ -3,6 +3,9 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+import django
+from django.utils.version import get_version
+print(f"DEBUG: STARTING SETTINGS LOAD. Django version: {get_version()}")
 
 load_dotenv()
 
@@ -26,8 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'cloudinary',
     'model_utils',  # For model tracking
     'shop.apps.ShopConfig',  # Use AppConfig for signal registration
@@ -133,6 +136,17 @@ STORAGES = {
 # Legacy settings for compatibility with older third-party apps
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# HACK: Force-inject into django.conf.settings for libraries that bypass the settings module
+import django.conf
+try:
+    if not hasattr(django.conf.settings, 'STATICFILES_STORAGE'):
+        setattr(django.conf.settings, 'STATICFILES_STORAGE', STATICFILES_STORAGE)
+    if not hasattr(django.conf.settings, 'DEFAULT_FILE_STORAGE'):
+        setattr(django.conf.settings, 'DEFAULT_FILE_STORAGE', DEFAULT_FILE_STORAGE)
+    print("DEBUG: Successfully injected legacy storage settings into django.conf.settings")
+except Exception as e:
+    print(f"DEBUG: Failed to inject legacy settings: {e}")
 
 
 # Cloudinary settings

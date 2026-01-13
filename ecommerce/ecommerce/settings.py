@@ -40,7 +40,6 @@ print(f"--- END DIAGNOSTIC ---")
 
 
 INSTALLED_APPS = [
-    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

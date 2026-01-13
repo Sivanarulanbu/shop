@@ -18,6 +18,34 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+# --- STATIC & STORAGE CONFIGURATION (Moved Up to Prevent AttributeError) ---
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Diagnostic prints for Railway logs
+print(f"--- DIAGNOSTIC ---")
+print(f"BASE_DIR: {BASE_DIR}")
+print(f"STATIC_ROOT: {STATIC_ROOT}")
+print(f"STATICFILES_STORAGE: {STATICFILES_STORAGE}")
+print(f"--- END DIAGNOSTIC ---")
+# --------------------------------------------------------------------------
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -96,42 +124,6 @@ if not DATABASES['default']:
             }
         }
 
-
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-# Static files (CSS, JavaScript, Images) configuration
-# Providing both legacy and modern formats for maximum compatibility with Cloudinary and Whitenoise
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
-    },
-}
-
-# Diagnostic prints for Railway logs
-print(f"--- DIAGNOSTIC ---")
-print(f"BASE_DIR: {BASE_DIR}")
-print(f"STATIC_ROOT: {STATIC_ROOT}")
-print(f"STATIC_URL: {STATIC_URL}")
-print(f"STATICFILES_STORAGE: {getattr(os, 'STATICFILES_STORAGE', 'NOT SET in os')}") # This is wrong, checking settings
-print(f"--- END DIAGNOSTIC ---")
 
 # Cloudinary settings
 CLOUDINARY_STORAGE = {

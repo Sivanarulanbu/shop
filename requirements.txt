@@ -98,4 +98,4 @@ psycopg2-binary
 whitenoise
 dj-database-url
 cloudinary
-django-cloudinary-storage
+django-cloudinary-storage>=0.3.0

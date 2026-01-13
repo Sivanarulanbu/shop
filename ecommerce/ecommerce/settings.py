@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'cloudinary',
     'model_utils',  # For model tracking
     'shop.apps.ShopConfig',  # Use AppConfig for signal registration
@@ -109,9 +110,28 @@ STATICFILES_DIRS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# Use legacy settings for better compatibility with Cloudinary and Whitenoise
+# Static files (CSS, JavaScript, Images) configuration
+# Providing both legacy and modern formats for maximum compatibility with Cloudinary and Whitenoise
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
+
+# Diagnostic prints for Railway logs
+print(f"--- DIAGNOSTIC ---")
+print(f"BASE_DIR: {BASE_DIR}")
+print(f"STATIC_ROOT: {STATIC_ROOT}")
+print(f"STATIC_URL: {STATIC_URL}")
+print(f"STATICFILES_STORAGE: {getattr(os, 'STATICFILES_STORAGE', 'NOT SET in os')}") # This is wrong, checking settings
+print(f"--- END DIAGNOSTIC ---")
 
 # Cloudinary settings
 CLOUDINARY_STORAGE = {

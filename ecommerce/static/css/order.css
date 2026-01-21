@@ -3,12 +3,12 @@
     transition: transform 0.2s ease;
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .order-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .status-badge {
@@ -17,23 +17,52 @@
     border-radius: 1rem;
 }
 
-.status-pending { background-color: #fef3c7; color: #92400e; }
-.status-processing { background-color: #dbeafe; color: #1e40af; }
-.status-shipped { background-color: #e0e7ff; color: #3730a3; }
-.status-delivered { background-color: #dcfce7; color: #166534; }
-.status-cancelled { background-color: #fee2e2; color: #991b1b; }
+.status-pending {
+    background-color: #F8FAFC;
+    color: #64748B;
+    border: 1px solid #E2E8F0;
+}
+
+.status-processing {
+    background-color: #F0FAFF;
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-light);
+}
+
+.status-shipped {
+    background-color: #E0F2FE;
+    color: var(--primary-dark);
+    border: 1px solid var(--primary);
+}
+
+.status-delivered {
+    background-color: var(--primary);
+    color: white;
+}
+
+.status-cancelled {
+    background-color: #1A1A1A;
+    color: white;
+}
+
+.status-refunded {
+    background-color: #F1F5F9;
+    color: #475569;
+}
 
 /* Checkout form styles */
-.form-control, .form-select {
+.form-control,
+.form-select {
     border-radius: 0.5rem;
     border: 1px solid #e5e7eb;
     padding: 0.625rem 1rem;
     transition: border-color 0.2s ease;
 }
 
-.form-control:focus, .form-select:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(0, 191, 255, 0.1);
 }
 
 .payment-method-option {

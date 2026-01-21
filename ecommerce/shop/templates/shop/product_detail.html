@@ -41,15 +41,16 @@
         <p class="text-muted mb-4">Brand: <span class="text-dark fw-600">{{ product.brand.name }}</span></p>
 
         {% if product.featured %}
-        <span class="badge bg-warning text-dark mb-4 px-3 py-2"><i class="fas fa-star me-1"></i> Featured Product</span>
+        <span class="badge bg-dark text-white mb-4 px-3 py-2"><i class="fas fa-star me-1"></i> Featured Product</span>
         {% endif %}
 
         <div class="d-flex align-items-center gap-3 mb-2">
             <span class="prominent-price">${{ product.price }}</span>
             {% if product.original_price %}
             <div class="d-flex flex-column">
-                <span class="text-muted text-decoration-line-through">${{ product.original_price }}</span>
-                <span class="badge bg-danger">SAVE {{ product.discount_percentage }}%</span>
+                <span class="text-muted text-decoration-line-through small">${{ product.original_price }}</span>
+                <span class="badge" style="background-color: var(--primary); color: white;">SAVE {{
+                    product.discount_percentage }}%</span>
             </div>
             {% endif %}
         </div>
@@ -117,7 +118,7 @@
         </div>
 
         <!-- Sticky Mobile Add to Cart Bar -->
-        <div class="sticky-mobile-cart" id="stickyCart">
+        <div class="sticky-mobile-cart shadow-lg border-top" id="stickyCart">
             <div class="d-flex align-items-center flex-grow-1 overflow-hidden">
                 {% if product.image %}
                 <img src="{{ product.image.url }}" alt="" style="width: 40px; height: 40px; object-fit: cover;"
@@ -136,7 +137,7 @@
             <form action="{% url 'shop:cart_add' product.id %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="quantity" value="1">
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
             </form>
         </div>
 

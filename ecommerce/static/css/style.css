@@ -1,12 +1,12 @@
 :root {
-    --primary: #4f46e5;
-    --primary-dark: #4338ca;
-    --primary-light: #eef2ff;
-    --secondary: #ec4899;
-    --accent: #f59e0b;
+    --primary: #0d9488;
+    --primary-dark: #0f766e;
+    --primary-light: #f0fdfa;
+    --secondary: #f59e0b;
+    --accent: #14b8a6;
     --heading: #1e293b;
-    --text: #475569;
-    --text-light: #94a3b8;
+    --text: #334155;
+    --text-light: #64748b;
     --light: #f8fafc;
     --border: #e2e8f0;
     --white: #ffffff;
@@ -15,13 +15,13 @@
     --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --radius: 16px;
+    --radius: 10px;
 }
 
 body {
     font-family: 'Inter', 'Open Sans', sans-serif;
     color: var(--text);
-    background-color: #fcfcfd;
+    background-color: var(--white);
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -34,21 +34,38 @@ body {
     box-shadow: var(--shadow);
 }
 
-.btn-premium {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
+.btn-premium,
+.btn-primary {
+    background: var(--primary);
+    color: white !important;
     border: none;
     padding: 12px 24px;
-    border-radius: 50px;
+    border-radius: var(--radius);
     font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    transition: var(--transition);
+    box-shadow: none;
 }
 
-.btn-premium:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
-    color: white;
+.btn-premium:hover,
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary) !important;
+    border: 2px solid var(--primary);
+    padding: 10px 22px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark) !important;
 }
 
 h1,
@@ -102,10 +119,7 @@ h6 {
 .logo-text {
     font-size: 24px;
     font-weight: 800;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary);
     letter-spacing: -0.5px;
 }
 
@@ -366,20 +380,21 @@ h6 {
 
 /* Footer */
 .footer {
-    background: #111827;
-    color: #9ca3af;
-    padding: 80px 0 0;
-    margin-top: 100px;
+    background: #000000;
+    color: #FFFFFF;
+    padding: 60px 0 0;
+    margin-top: 80px;
 }
 
 .footer h5 {
-    color: white;
+    color: var(--primary);
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 30px;
 }
 
 .footer-widget p {
+    color: #E2E8F0;
     font-size: 14px;
     line-height: 1.8;
 }
@@ -389,7 +404,7 @@ h6 {
 }
 
 .footer-links a {
-    color: #9ca3af;
+    color: #FFFFFF;
     text-decoration: none;
     transition: var(--transition);
     font-size: 14px;
@@ -397,7 +412,7 @@ h6 {
 
 .footer-links a:hover {
     color: var(--primary);
-    padding-left: 8px;
+    padding-left: 5px;
 }
 
 .footer-bottom {
@@ -449,12 +464,12 @@ h6 {
     background: var(--primary);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: var(--radius);
     transition: var(--transition);
 }
 
 .newsletter-form button:hover {
-    background: var(--secondary);
+    background: var(--primary-dark);
 }
 
 /* User Dropdown */
@@ -744,9 +759,9 @@ h6 {
 }
 
 .step.completed .step-number {
-    background: #4CAF50;
+    background: var(--primary);
     color: white;
-    border-color: #4CAF50;
+    border-color: var(--primary);
 }
 
 .step-label {
@@ -800,7 +815,7 @@ h6 {
 }
 
 .is-valid+.validation-feedback {
-    color: #4CAF50;
+    color: var(--primary);
     display: block;
 }
 
@@ -906,15 +921,4 @@ h6 {
 
 .bg-primary-light {
     background-color: var(--primary-light) !important;
-}
-
-.logo-text {
-    font-size: 26px;
-    font-weight: 800;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -0.5px;
 }

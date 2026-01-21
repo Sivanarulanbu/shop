@@ -19,31 +19,31 @@
                         <div class="order-progress mb-5">
                             <div class="tracking-line-container">
                                 <div class="tracking-line-fill"
-                                    style="width: {{ progress_percentage }}%; background-color: {% if order.status == 'delivered' %}#146c43{% elif order.status == 'shipped' %}#0d6efd{% else %}#3b82f6{% endif %};">
+                                    style="width: {{ progress_percentage }}%; background-color: var(--primary);">
                                 </div>
                                 <div class="progress-step {% if order.status != 'pending' %}completed{% endif %} active"
                                     data-title="Order Placed"
-                                    style="{% if order.status != 'pending' %}background-color: #146c43; border-color: #146c43; color: white;{% endif %}">
+                                    style="{% if order.status != 'pending' %}background-color: var(--primary); border-color: var(--primary); color: white;{% endif %}">
                                     <i class="fas fa-box"></i>
                                 </div>
                                 <div class="progress-step {% if order.status == 'processing' or order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}active{% endif %} {% if order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}completed{% endif %}"
                                     data-title="Processing"
-                                    style="{% if order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}background-color: #146c43; border-color: #146c43; color: white;{% elif order.status == 'processing' %}background-color: #0d6efd; border-color: #0d6efd; color: white;{% endif %}">
+                                    style="{% if order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}background-color: var(--primary); border-color: var(--primary); color: white;{% elif order.status == 'processing' %}background-color: var(--primary-dark); border-color: var(--primary-dark); color: white;{% endif %}">
                                     <i class="fas fa-cog"></i>
                                 </div>
                                 <div class="progress-step {% if order.status == 'confirmed' or order.status == 'shipped' or order.status == 'delivered' %}active{% endif %} {% if order.status == 'shipped' or order.status == 'delivered' %}completed{% endif %}"
                                     data-title="Confirmed"
-                                    style="{% if order.status == 'shipped' or order.status == 'delivered' %}background-color: #146c43; border-color: #146c43; color: white;{% elif order.status == 'confirmed' %}background-color: #0d6efd; border-color: #0d6efd; color: white;{% endif %}">
+                                    style="{% if order.status == 'shipped' or order.status == 'delivered' %}background-color: var(--primary); border-color: var(--primary); color: white;{% elif order.status == 'confirmed' %}background-color: var(--primary-dark); border-color: var(--primary-dark); color: white;{% endif %}">
                                     <i class="fas fa-check"></i>
                                 </div>
-                                <div class="progress-step {% if order.status == 'shipped' or order.status == 'delivered' %}active{% endif %} {% if order.status == 'delivered' %}completed{% endif %}"
+                                <div class="progress-step {% if order.status == 'shipped' or order.status == 'delivered' %}active{% endif %} {% if order.status == 'shipped' or order.status == 'delivered' %}completed{% endif %}"
                                     data-title="Shipped"
-                                    style="{% if order.status == 'delivered' %}background-color: #146c43; border-color: #146c43; color: white;{% elif order.status == 'shipped' %}background-color: #0d6efd; border-color: #0d6efd; color: white;{% endif %}">
+                                    style="{% if order.status == 'delivered' %}background-color: var(--primary); border-color: var(--primary); color: white;{% elif order.status == 'shipped' %}background-color: var(--primary-dark); border-color: var(--primary-dark); color: white;{% endif %}">
                                     <i class="fas fa-truck"></i>
                                 </div>
                                 <div class="progress-step {% if order.status == 'delivered' %}active completed{% endif %}"
                                     data-title="Delivered"
-                                    style="{% if order.status == 'delivered' %}background-color: #146c43; border-color: #146c43; color: white;{% endif %}">
+                                    style="{% if order.status == 'delivered' %}background-color: var(--primary); border-color: var(--primary); color: white;{% endif %}">
                                     <i class="fas fa-home"></i>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
         top: 0;
         left: 0;
         height: 100%;
-        background: #3b82f6;
+        background: var(--primary);
         transition: width 0.3s ease;
         border-radius: 10px;
         z-index: 1;
@@ -196,8 +196,8 @@
     }
 
     .progress-step.active {
-        border-color: #3b82f6;
-        color: #3b82f6;
+        border-color: var(--primary);
+        color: var(--primary);
     }
 
     .progress-step:nth-child(2) {
@@ -249,76 +249,66 @@
         color: #055160;
     }
 
-    .status-confirmed {
-        background-color: #d1e7dd;
-        color: #0f5132;
-    }
-
-    .status-shipped {
-        background-color: #cfe2ff;
-        color: #084298;
-    }
-
+    .status-confirmed,
     .status-delivered {
-        background-color: #d1e7dd;
-        color: #146c43;
-    }
+        background-color: var(--primary-light);
+        color: var(--primary-dark);
 
-    .status-cancelled {
-        background-color: #f8d7da;
-        color: #842029;
-    }
+        .status-cancelled {
+            background-color: #f8d7da;
+            color: #842029;
+        }
 
-    .status-refunded {
-        background-color: #e2e3e5;
-        color: #41464b;
-    }
+        .status-refunded {
+            background-color: #e2e3e5;
+            color: #41464b;
+        }
 
-    .timeline {
-        position: relative;
-        padding: 20px 0;
-    }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
 
-    .timeline-item {
-        position: relative;
-        padding-left: 30px;
-        margin-bottom: 30px;
-        border-left: 2px solid #e9ecef;
-    }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            border-left: 2px solid #e9ecef;
+        }
 
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -8px;
-        top: 0;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #fff;
-        border: 2px solid #6c757d;
-    }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #6c757d;
+        }
 
-    .timeline-item.active::before {
-        background: #3b82f6;
-        border-color: #3b82f6;
-    }
+        .timeline-item.active::before {
+            background: #3b82f6;
+            border-color: #3b82f6;
+        }
 
-    .timeline-date {
-        font-size: 0.875rem;
-        color: #6c757d;
-        margin-bottom: 5px;
-    }
+        .timeline-date {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
 
-    .timeline-content {
-        background-color: #f8f9fa;
-        padding: 15px;
-        border-radius: 4px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
+        .timeline-content {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
 
-    .timeline-item.active .timeline-content {
-        background-color: #e8f2ff;
-        border-left: 3px solid #3b82f6;
-    }
+        .timeline-item.active .timeline-content {
+            background-color: var(--primary-light);
+            border-left: 3px solid var(--primary);
+        }
 </style>
 {% endblock %}

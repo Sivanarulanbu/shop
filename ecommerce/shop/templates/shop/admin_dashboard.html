@@ -71,7 +71,7 @@
     <div class="col-md-9 col-lg-10 p-4 main-bg">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h2 class="dashboard-title mb-0">Analytics & Reports Dashboard</h2>
+                <h2 class="dashboard-title mb-0">Analytics & Reports Dashboard v3</h2>
                 <span class="text-muted small">Welcome back, <strong>{{
                         request.user.first_name|default:request.user.username }}</strong></span>
             </div>
@@ -278,7 +278,7 @@
                             <div
                                 class="d-flex justify-content-between align-items-center py-2 border-bottom last-no-border">
                                 <span class="text-muted small">{{ item.product__category__name }}</span>
-                                <span class="fw-bold text-dark">${{ item.total_rev|floatformat:0 }}</span>
+                                <span class="fw-bold text-dark">${{ item.total_rev_display }}</span>
                             </div>
                             {% empty %}
                             <div class="py-5 text-center text-muted small">No category data.</div>
@@ -505,7 +505,7 @@
                 data: {
                     labels: [{% for item in sales_by_category %}"{{ item.product__category__name }}"{% if not forloop.last %}, {% endif %} {% endfor %}],
         datasets: [{
-            data: [{% for item in sales_by_category %}{{ item.total_rev | floatformat: 0 }}{% if not forloop.last %}, {% endif %} {% endfor %}],
+            data: [{% for item in sales_by_category %}{{ item.total_rev_display }}{% if not forloop.last %}, {% endif %} {% endfor %}],
     backgroundColor: [
         '#3577f0',
         '#10b981',

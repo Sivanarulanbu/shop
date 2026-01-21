@@ -434,6 +434,10 @@ def admin_dashboard(request, extra_context=None):
         total_rev=Sum(F('price') * F('quantity'))
     ).order_by('-total_rev')
     
+    # Pre-process for template to avoid filter syntax errors
+    for item in sales_by_category:
+        item['total_rev_display'] = int(item['total_rev'] or 0)
+    
     # Get standard admin app list
     from django.contrib import admin
     app_list = admin.site.get_app_list(request)

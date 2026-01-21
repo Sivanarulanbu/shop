@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'logo/logo.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'logo/logo.png' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'logo/logo.png' %}">
-    <meta name="theme-color" content="#2563EB">
+    <meta name="theme-color" content="#0d9488">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,14 +20,9 @@
     <link href="{% static 'css/order.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3.0">
     <style>
-        :root {
-            --p-color: #4f46e5;
-            --s-color: #ec4899;
-        }
-
         body {
-            background-color: #f8fafc;
-            color: #334155;
+            background-color: var(--white);
+            color: var(--text);
         }
 
         .header {
@@ -41,10 +36,7 @@
             font-size: 26px;
             font-weight: 800;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, var(--p-color), var(--s-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
             letter-spacing: -0.5px;
         }
 
@@ -267,7 +259,7 @@
                                 style="height: 40px; width: auto;"
                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
                             <i class="fas fa-shopping-bag"
-                                style="display: none; color: #4f46e5; font-size: 28px; margin-right: 10px;"></i>
+                                style="display: none; color: #0d9488; font-size: 28px; margin-right: 10px;"></i>
                         </div>
                         <span class="logo-text">Swiftbuy</span>
                     </a>
@@ -278,7 +270,7 @@
                         <input type="text" name="search" class="search-input-modern"
                             placeholder="Search for products..." value="{{ request.GET.search }}">
                         <button type="submit"
-                            style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: var(--p-color); border: none; color: white; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: var(--primary); border: none; color: white; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-search" style="font-size: 13px;"></i>
                         </button>
                     </form>

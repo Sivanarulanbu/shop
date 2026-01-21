@@ -17,7 +17,7 @@
                                 <i class="fas fa-truck me-1"></i> Track Order
                             </a>
                             <span
-                                class="badge {% if order.status == 'pending' %}bg-warning{% elif order.status == 'processing' %}bg-info{% elif order.status == 'shipped' %}bg-primary{% elif order.status == 'delivered' %}bg-success{% elif order.status == 'cancelled' %}bg-danger{% elif order.status == 'refunded' %}bg-secondary{% else %}bg-secondary{% endif %} fs-6">
+                                class="badge {% if order.status == 'pending' %}bg-secondary text-white{% elif order.status == 'cancelled' %}bg-dark text-white{% else %}bg-primary text-white{% endif %} fs-6">
                                 {{ order.get_status_display }}
                             </span>
                         </div>
@@ -85,7 +85,7 @@
                         <div class="timeline">
                             {% for update in order.status_updates.all %}
                             <div class="timeline-item"
-                                style="--status-color: {% if update.status == 'pending' %}#ffc107{% elif update.status == 'processing' %}#17a2b8{% elif update.status == 'shipped' %}#007bff{% elif update.status == 'delivered' %}#28a745{% elif update.status == 'cancelled' %}#dc3545{% elif update.status == 'refunded' %}#6c757d{% else %}#6c757d{% endif %};">
+                                style="--status-color: {% if update.status == 'pending' %}#6c757d{% elif update.status == 'cancelled' %}#000000{% else %}var(--primary){% endif %};">
                                 <div class="timeline-date">{{ update.timestamp|date:"M d, Y H:i" }}</div>
                                 <div class="timeline-content">
                                     <h6>{{ update.get_status_display }}</h6>

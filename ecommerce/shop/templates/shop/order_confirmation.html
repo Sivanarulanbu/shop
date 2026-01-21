@@ -9,12 +9,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body text-center">
-                    <h2 class="card-title text-success mb-4">Order Confirmed!</h2>
+                    <h2 class="card-title text-primary mb-4">Order Confirmed!</h2>
                     <p class="lead">Thank you for your order. Your order has been successfully placed.</p>
 
                     <div class="order-status mb-4">
                         <div
-                            class="alert {% if order.status == 'pending' %}alert-warning{% elif order.status == 'processing' %}alert-info{% elif order.status == 'confirmed' %}alert-success{% elif order.status == 'cancelled' %}alert-danger{% else %}alert-info{% endif %}">
+                            class="alert {% if order.status == 'pending' %}alert-warning{% elif order.status == 'processing' %}alert-info{% elif order.status == 'confirmed' %}alert-primary{% elif order.status == 'cancelled' %}alert-danger{% else %}alert-info{% endif %}">
                             <h4 class="mb-2">Order Status: {{ order.get_status_display }}</h4>
                             <p class="mb-0">
                                 <small>Last Update:

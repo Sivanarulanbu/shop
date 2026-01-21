@@ -27,7 +27,7 @@
                     <td>${{ order.total_amount }}</td>
                     <td>
                         <span
-                            class="badge {% if order.status == 'pending' %}bg-warning{% elif order.status == 'processing' %}bg-info{% elif order.status == 'shipped' %}bg-primary{% elif order.status == 'delivered' %}bg-success{% elif order.status == 'cancelled' %}bg-danger{% elif order.status == 'refunded' %}bg-secondary{% else %}bg-secondary{% endif %}">
+                            class="badge {% if order.status == 'pending' %}bg-secondary text-white{% elif order.status == 'cancelled' %}bg-dark text-white{% else %}bg-primary text-white{% endif %} fs-6">
                             {{ order.get_status_display }}
                         </span>
                     </td>

@@ -3,9 +3,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
 
-load_dotenv()
-
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load .env from the project root (one level above BASE_DIR)
+load_dotenv(os.path.join(BASE_DIR.parent, '.env'))
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-secret-key-here')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'

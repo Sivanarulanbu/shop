@@ -20,8 +20,15 @@ CSRF_TRUSTED_ORIGINS = [
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # --- STATIC & STORAGE CONFIGURATION (Moved Up to Prevent AttributeError) ---
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'
+# Use Django 4.2+ STORAGES setting to bypass cloudinary_storage's buggy collectstatic
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 
 
 STATIC_URL = '/static/'
@@ -30,12 +37,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# Diagnostic prints for Railway logs
-print(f"--- DIAGNOSTIC ---")
-print(f"BASE_DIR: {BASE_DIR}")
-print(f"STATIC_ROOT: {STATIC_ROOT}")
-print(f"STATICFILES_STORAGE: {STATICFILES_STORAGE}")
-print(f"--- END DIAGNOSTIC ---")
 # --------------------------------------------------------------------------
 
 

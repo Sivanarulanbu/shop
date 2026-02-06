@@ -41,6 +41,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+# WhiteNoise configuration - allow serving without collectstatic
+WHITENOISE_USE_FINDERS = True  # Serve from STATICFILES_DIRS even without collectstatic
+WHITENOISE_AUTOREFRESH = True  # Auto-discover files
+
 # --------------------------------------------------------------------------
 
 

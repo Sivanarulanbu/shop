@@ -41,9 +41,10 @@ ls -R | grep -v "node_modules" | head -n 30
 echo "DEBUG: Contents of static folder:"
 ls -R static || echo "static folder not found"
 
-# Collect static files
-echo "Collecting static files..."
-python manage.py collectstatic --noinput --clear
+# Collect static files - DISABLED due to cloudinary_storage bug
+# WhiteNoise can serve directly from STATICFILES_DIRS  
+echo "Skipping collectstatic (WhiteNoise serves from STATICFILES_DIRS)..."
+# python manage.py collectstatic --noinput --clear
 
 # Start server
 echo "Starting server..."

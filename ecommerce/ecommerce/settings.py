@@ -20,7 +20,7 @@ CSRF_TRUSTED_ORIGINS = [
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # --- STATIC & STORAGE CONFIGURATION (Moved Up to Prevent AttributeError) ---
-# Use Django 4.2+ STORAGES setting to bypass cloudinary_storage's buggy collectstatic
+# Use Django 4.2+ STORAGES setting
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary.storage.MediaCloudinaryStorage",
@@ -29,6 +29,10 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
+
+# Backwards compatibility for cloudinary_storage's buggy collectstatic command
+# Even though we use STORAGES above, cloudinary_storage checks this deprecated setting
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 STATIC_URL = '/static/'

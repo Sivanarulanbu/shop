@@ -21,7 +21,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # --- STATIC & STORAGE CONFIGURATION (Moved Up to Prevent AttributeError) ---
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'
 
 
 STATIC_URL = '/static/'
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary',
     'model_utils',  # For model tracking
     'shop.apps.ShopConfig',  # Use AppConfig for signal registration
     'accounts'

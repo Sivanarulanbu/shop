@@ -2,11 +2,16 @@ import logging
 import traceback
 from functools import wraps
 from django.db import transaction
+from pathlib import Path
 
 def setup_order_logger():
     """Set up a dedicated logger for order processing"""
     logger = logging.getLogger('shop.orders')
     logger.setLevel(logging.DEBUG)
+    
+    # Create logs directory if it doesn't exist
+    logs_dir = Path('logs')
+    logs_dir.mkdir(exist_ok=True)
     
     # Create file handler for all logs
     file_handler = logging.FileHandler('logs/order_processing.log')

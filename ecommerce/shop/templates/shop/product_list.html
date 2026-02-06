@@ -4,6 +4,159 @@
 {% block title %}Products - Swiftbuy{% endblock %}
 
 {% block content %}
+<!-- Hero Section -->
+<div class="hero-section mb-5">
+    <div class="hero-content">
+        <div class="hero-badge">🎉 New Arrivals Every Week</div>
+        <h1 class="hero-title">
+            Discover Premium Products
+            <span class="hero-gradient-text">At Unbeatable Prices</span>
+        </h1>
+        <p class="hero-subtitle">Shop the latest trends with confidence. Quality guaranteed, always.</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfaction</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 24px;
+        padding: 80px 40px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+        background-size: 50px 50px;
+        opacity: 0.3;
+        animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(-100px);
+        }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 10px 24px;
+        border-radius: 50px;
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 24px;
+        line-height: 1.2;
+        letter-spacing: -1px;
+    }
+
+    .hero-gradient-text {
+        display: block;
+        background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 40px;
+        font-weight: 400;
+    }
+
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-top: 50px;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 8px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-label {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 50px 24px;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+        }
+
+        .hero-stats {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+        }
+    }
+</style>
+
 <div class="row">
     <!-- Filters Sidebar -->
     <div class="col-md-3">
@@ -133,8 +286,7 @@
                             <div class="position-absolute top-0 end-0 m-2">
                                 <span class="badge shadow-sm small"
                                     style="background-color: var(--primary); color: white;">{{
-                                    product.discount_percentage }}%
-                                    OFF</span>
+                                    product.discount_percentage }}% OFF</span>
                             </div>
                             {% endif %}
                         </div>
